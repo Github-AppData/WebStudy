@@ -20,6 +20,9 @@ public class RequestParamServlet extends HttpServlet {
          *  using Study. 16강 API 메세지 바디 (단순 텍스트) -  API Body message Text Test
          * */
 
+        // Test : Postman
+        // Way : urlPatterns 입력 후, 1. Body - x-www-form-urlencoded 2. body에 키와 값 데이터 적고 3. send
+
         /// 전체 파라미터 조회 -> .asIterator()...
         System.out.println();
         System.out.println("[전체 파라미터 조회] - Start");

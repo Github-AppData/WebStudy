@@ -23,8 +23,9 @@ public class RequestBodyStringServlet extends HttpServlet {
          *
          * */
 
-        /// Postman으로 Test
-        // - urlPatterns 입력 후, 1. Body - raw 2. body 내용 적고 3. send
+        // Test : Postman
+        // Way : urlPatterns 입력 후, 1. Body - raw 2. body 내용 적고 3. send
+
         ServletInputStream inputStream = request.getInputStream(); // body 내용을 바이트 코드로
         String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8); // 바이트를 String으로 - 인코딩 정보는 반드시 알려주어야 한다.
 
