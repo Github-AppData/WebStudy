@@ -1,4 +1,5 @@
-<%-- Make Study. 26강 MVC 패턴 (적용) --%>
+<%-- Make Study. 26강 MVC 패턴 (적용)
+     using Study. 29강. 프론트 컨트롤러 도입 (v1) --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
