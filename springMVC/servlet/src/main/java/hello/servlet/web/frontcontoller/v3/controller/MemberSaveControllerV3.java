@@ -17,15 +17,17 @@ public class MemberSaveControllerV3 implements ControllerV3 {
 
     @Override
     public ModelView process(Map<String, String> paramMap) {
+
+        // createParamMap 메서드로 생성한, parameter Data를 저장하고 있는 paramMap을 .get username, age에 저장.
         String username = paramMap.get("username");
         int age = Integer.parseInt(paramMap.get("age"));
 
+        // 저장한, username, age를 Member 객체에 넣어준다.
         Member member = new Member(username, age);
-        memberRepository.save(member);
+        memberRepository.save(member); // repo에 저장.
 
         ModelView mv = new ModelView("save"); // 논리 뷰 이름 설정
         mv.getModel().put("member", member); // 필요한 모델 객체 넣어서 반환 = 데이터 저장.
         return mv; // 반환
-
     }
 }

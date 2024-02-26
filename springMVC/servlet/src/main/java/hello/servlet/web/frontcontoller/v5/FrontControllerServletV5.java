@@ -31,11 +31,10 @@ import java.util.Map;
 @WebServlet(name = "frontControllerServletV5", urlPatterns = "/front-controller/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
 
-    // TODO : Adapter 로직 이해하기 - v3, v4 둘 다.
-    //  어떻게 가지고 오고 쓰여지는지
 
     // private Map<String, ControllerV4> controllerV4Map = new HashMap<>(); // 기존 - cv4로 정해져 있는 컨트롤러
-    private final Map<String, Object> handlerMappingMap = new HashMap<>(); // 매핑 정보
+
+    private final Map<String, Object> handlerMappingMap = new HashMap<>(); // URItoCV매핑 정보
     private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>(); // 어댑터 리스트
 
     public FrontControllerServletV5() {
@@ -43,7 +42,9 @@ public class FrontControllerServletV5 extends HttpServlet {
         initHandlerAdapters();
     }
 
-    // Adapter init Method
+    /**
+     * Adapters Save -> 'handlerAdapters'
+     */
     private void initHandlerAdapters() {
         handlerAdapters.add(new ControllerV3HandlerAdapter());
         handlerAdapters.add(new ControllerV4HandlerAdapter());
@@ -89,12 +90,12 @@ public class FrontControllerServletV5 extends HttpServlet {
      * */
     private MyHandlerAdapter getHandlerAdapter(Object handler) {
         MyHandlerAdapter a;
-        for (MyHandlerAdapter adapter : handlerAdapters) {
-            if(adapter.supports(handler)){ // 지원여부 판단.
+        for (MyHandlerAdapter adapter : handlerAdapters) { // adapter들을 adapter에다가
+            if(adapter.supports(handler)){ // adapter가 지원하는 handler 인지.
                 return adapter;
             }
         }
-        // Argument가 잘못 들어왔다.
+        // 지원을 하지 않으면 던진다 -> IllegalArgumentException
         throw new IllegalArgumentException("handler adapter를 찾을 수 없습니다. handler=" + handler);
     }
 

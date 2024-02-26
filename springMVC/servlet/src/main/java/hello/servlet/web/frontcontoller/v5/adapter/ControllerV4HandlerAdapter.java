@@ -31,8 +31,9 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
         HashMap<String, Object> model = new HashMap<>(); // 모델을 생성하고
         String viewname = controller.process(paramMap, model);
 
-        // TODO : 이 로직 이해하기
-        // 단순하지만 중요한 로직 - '어댑터 변환'
+
+        /// return Type -> ModelView
+        // 그래서, viewname 이름을 modelview 객체로 바꿔서 넣는다.
         ModelView mv = new ModelView(viewname);
         mv.setModel(model);
 
