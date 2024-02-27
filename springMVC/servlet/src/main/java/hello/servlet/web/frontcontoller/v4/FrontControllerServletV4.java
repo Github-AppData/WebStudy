@@ -1,7 +1,8 @@
 package hello.servlet.web.frontcontoller.v4;
 
 import hello.servlet.web.frontcontoller.MyView;
-import hello.servlet.web.frontcontoller.RequestParameterUtils;
+import hello.servlet.web.frontcontoller.UtillsFactory;
+import hello.servlet.web.frontcontoller.Utils;
 import hello.servlet.web.frontcontoller.v4.controller.MemberFormControllerV4;
 import hello.servlet.web.frontcontoller.v4.controller.MemberListControllerV4;
 import hello.servlet.web.frontcontoller.v4.controller.MemberSaveControllerV4;
@@ -52,9 +53,10 @@ public class FrontControllerServletV4 extends HttpServlet {
             return; // 종료
         }
 
-        /// model을 FrontController에서 직접 만든다. -> ModelView 종속 제거
-        Map<String, String> paramMap = RequestParameterUtils.createParamMap(request);
-        Map<String, Object> model  = new HashMap<>();
+        Utils rp = UtillsFactory.createUtill("requestParameter"); // 팩토리 메서드를 통해 객체 생성
+        Map<String, String> paramMap = rp.createParamMap(request); // 클라이언트는 구체적인 서비스 클래스에 의존하지 않음
+
+        Map<String, Object> model  = new HashMap<>(); /// model을 FrontController에서 직접 만든다. -> ModelView 종속 제거
         String viewname = controller.process(paramMap, model); // 논리이름 반환.
 
         MyView view = viewResolver(viewname); // 4. 그래서, 물리 경로 + 논리경로 + .jsp 을 한다.

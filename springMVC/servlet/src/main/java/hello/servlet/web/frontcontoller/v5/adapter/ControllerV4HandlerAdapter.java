@@ -1,6 +1,8 @@
 package hello.servlet.web.frontcontoller.v5.adapter;
 
 import hello.servlet.web.frontcontoller.ModelView;
+import hello.servlet.web.frontcontoller.UtillsFactory;
+import hello.servlet.web.frontcontoller.Utils;
 import hello.servlet.web.frontcontoller.v4.ControllerV4;
 import hello.servlet.web.frontcontoller.v5.MyHandlerAdapter;
 import jakarta.servlet.ServletException;
@@ -27,7 +29,9 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
     public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
         ControllerV4 controller = (ControllerV4) handler;
 
-        Map<String, String> paramMap = createParamMap(request); // 데이터를 HashMap으로 바꿔서 넣어준다.
+
+        Utils rp = UtillsFactory.createUtill("requestParameter");
+        Map<String, String> paramMap = rp.createParamMap(request); // 데이터를 HashMap으로 바꿔서 넣어준다.
         HashMap<String, Object> model = new HashMap<>(); // 모델을 생성하고
         String viewname = controller.process(paramMap, model);
 
@@ -40,17 +44,4 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
         return mv;
     }
 
-    private static Map<String, String> createParamMap(HttpServletRequest request) {
-
-        // paramMap : 파라미터 키와 값을 저장 하는 맵
-        Map<String, String> paramMap = new HashMap<>(); // paramMap : 파라미터 저장 하는 맵
-
-        // .forEachRemaining을 통해서 모든 파라미터 이름(paramName)을 다 가지고 와서 저장한 다음에,
-        // request.getParameter(paramName)을 이용해서 데이터를 꺼낸다.
-        request.getParameterNames().asIterator()
-                .forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
-        // request.getParameter(paramName) : paramName 이름을 기반해서 데이터를 꺼낸다.
-
-        return paramMap; // 저장된 키와 값을 반환한다.
-    }
 }

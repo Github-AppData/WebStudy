@@ -1,7 +1,8 @@
 package hello.servlet.web.frontcontoller.v5.adapter;
 
 import hello.servlet.web.frontcontoller.ModelView;
-import hello.servlet.web.frontcontoller.RequestParameterUtils;
+import hello.servlet.web.frontcontoller.UtillsFactory;
+import hello.servlet.web.frontcontoller.Utils;
 import hello.servlet.web.frontcontoller.v3.ControllerV3;
 import hello.servlet.web.frontcontoller.v5.MyHandlerAdapter;
 import jakarta.servlet.ServletException;
@@ -9,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -43,7 +43,9 @@ public class ControllerV3HandlerAdapter implements MyHandlerAdapter {
     public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
         ControllerV3 controller = (ControllerV3) handler;
 
-        Map<String, String> paramMap = RequestParameterUtils.createParamMap(request);
+        Utils rp = UtillsFactory.createUtill("requestParameter");
+
+        Map<String, String> paramMap = rp.createParamMap(request);
         ModelView mv = controller.process(paramMap);
 
         return mv;

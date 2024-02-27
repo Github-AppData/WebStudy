@@ -1,8 +1,6 @@
 package hello.servlet.web.frontcontoller.v3;
 
-import hello.servlet.web.frontcontoller.ModelView;
-import hello.servlet.web.frontcontoller.MyView;
-import hello.servlet.web.frontcontoller.RequestParameterUtils;
+import hello.servlet.web.frontcontoller.*;
 import hello.servlet.web.frontcontoller.v3.controller.MemberFormControllerV3;
 import hello.servlet.web.frontcontoller.v3.controller.MemberListControllerV3;
 import hello.servlet.web.frontcontoller.v3.controller.MemberSaveControllerV3;
@@ -57,7 +55,9 @@ public class FrontControllerServletV3 extends HttpServlet {
         //   데이터가 어떻게 넘어가서 보여 지는지 이해하기. - line 59 ~ (render -> 'modelToRequestAttribute')
 
         /// view 관한 설정
-        Map<String, String> paramMap = RequestParameterUtils.createParamMap(request); // parameter Data -> HashMap Convert To Store
+        Utils rp = UtillsFactory.createUtill("requestParameter");
+
+        Map<String, String> paramMap = rp.createParamMap(request); // parameter Data -> HashMap Convert To Store
         ModelView mv = controller.process(paramMap); // 1. 해당 컨트롤러 메서드로 간 다음에, 뷰의 이름을 구해서 mv에 저장.
 
         String viewname = mv.getViewname(); // 2. 구한 view 이름을 viewname에 저장한다.
