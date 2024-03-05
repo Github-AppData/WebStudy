@@ -37,6 +37,7 @@ public class FrontControllerServletV5 extends HttpServlet {
     private final Map<String, Object> handlerMappingMap = new HashMap<>(); // URItoCV매핑 정보
     private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>(); // 어댑터 리스트
 
+    // 생성자 - 이 클래스가 실행되면 자동으로 실행
     public FrontControllerServletV5() {
         initHandlerMappingMap();
         initHandlerAdapters();
@@ -50,7 +51,7 @@ public class FrontControllerServletV5 extends HttpServlet {
         handlerAdapters.add(new ControllerV4HandlerAdapter());
     }
 
-    /** handler TO URI Mapping Method */
+    /** handler TO URI Mapping Method */ // <- 2. 핸들러 어댑터 목록
     private void initHandlerMappingMap() {
         handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new MemberFormControllerV3());
         handlerMappingMap.put("/front-controller/v5/v3/members/save", new MemberSaveControllerV3());
@@ -65,21 +66,24 @@ public class FrontControllerServletV5 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Object handler = getHandler(request);
+        // 1. 핸들러 조회 & 2.
+        Object handler = getHandler(request); // URI TO Handler 매핑 정보를 통해, 해당되는 handler를 가지고 온다.
 
+        // 만약, 가지고 온 handler가 없다면,
         if(handler == null)
         {
+            // 상태 코드를 SC_NOT_FOUND 즉, 404 Error를 내라.
             response.setStatus(HttpServletResponse.SC_NOT_FOUND); // 404
             return;
         }
 
-        MyHandlerAdapter adapter = getHandlerAdapter(handler); // 1. HandlerAdapter 가지고 온다.
-        ModelView mv = adapter.handle(request, response, handler); // 2. 어댑터 호출
+        MyHandlerAdapter adapter = getHandlerAdapter(handler);
+        ModelView mv = adapter.handle(request, response, handler); // 3. 핸들러 어댑터 실행
 
         String viewname = mv.getViewname();
-        MyView view = viewResolver(viewname);
+        MyView view = viewResolver(viewname); // 6. 뷰 리졸버 실행
 
-        view.render(mv.getModel(), request,response);
+        view.render(mv.getModel(), request,response); // 7. view 반환
     }
 
     private static MyView viewResolver(String viewname) {
@@ -91,7 +95,7 @@ public class FrontControllerServletV5 extends HttpServlet {
      * */
     private MyHandlerAdapter getHandlerAdapter(Object handler) {
         MyHandlerAdapter a;
-        for (MyHandlerAdapter adapter : handlerAdapters) { // adapter들을 adapter에다가
+        for (MyHandlerAdapter adapter : handlerAdapters) {
             if(adapter.supports(handler)){ // adapter가 지원하는 handler 인지.
                 return adapter;
             }
@@ -101,10 +105,10 @@ public class FrontControllerServletV5 extends HttpServlet {
     }
 
     /**
-     * 핸들러 매핑
+     * 1. 핸들러 매핑 (=조회)
      * */
     private Object getHandler(HttpServletRequest request) {
         String requestURI = request.getRequestURI();
-        return handlerMappingMap.get(requestURI);
+        return handlerMappingMap.get(requestURI); // handlerMappingMap에 저장된 URI TO Handler 매핑 정보를 인수로 넣어서 유무확인
     }
 }

@@ -43,7 +43,7 @@ public class ControllerV3HandlerAdapter implements MyHandlerAdapter {
     public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
         ControllerV3 controller = (ControllerV3) handler;
 
-        Utils rp = UtillsFactory.createUtill("requestParameter");
+        Utils rp = UtillsFactory.createUtill("requestParameter"); // 이름이 틀리면 안된다.
 
         Map<String, String> paramMap = rp.createParamMap(request);
         ModelView mv = controller.process(paramMap);

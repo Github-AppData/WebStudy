@@ -28,7 +28,7 @@ public class MyView {
     public void render(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         modelToRequestAttribute(model, request);
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
-        dispatcher.forward(request, response); // 데이터가 저장된 request를 jsp에다가 넘긴다. 받은 jsp는 paramMap.get을 이용해서 사용한다.
+        dispatcher.forward(request, response); // 8. 데이터가 저장된 request를 jsp에다가 넘긴다. 받은 jsp는 paramMap.get을 이용해서 사용한다.
     }
 
     private static void modelToRequestAttribute(Map<String, Object> model, HttpServletRequest request) {

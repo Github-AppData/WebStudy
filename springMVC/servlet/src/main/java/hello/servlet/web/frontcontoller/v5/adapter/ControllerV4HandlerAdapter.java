@@ -27,13 +27,13 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
 
     @Override
     public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
-        ControllerV4 controller = (ControllerV4) handler;
+        ControllerV4 controller = (ControllerV4) handler; //
 
 
         Utils rp = UtillsFactory.createUtill("requestParameter");
         Map<String, String> paramMap = rp.createParamMap(request); // 데이터를 HashMap으로 바꿔서 넣어준다.
         HashMap<String, Object> model = new HashMap<>(); // 모델을 생성하고
-        String viewname = controller.process(paramMap, model);
+        String viewname = controller.process(paramMap, model); // 4. 핸들러 호출
 
 
         /// return Type -> ModelView
@@ -41,7 +41,7 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
         ModelView mv = new ModelView(viewname);
         mv.setModel(model);
 
-        return mv;
+        return mv; // 5. ModelView 반환
     }
 
 }
