@@ -101,7 +101,7 @@ public class RequestParamController {
 
     @ResponseBody
     @RequestMapping("/model-attribute-v2")
-    public String modelAttrilbuteV2(HelloData hd)
+    public String modelAttrilbuteV2(HelloData hd) // @ModelAttribute 는 생략 가능하다.ㅌ₩
     {
         log.info("username={}, age={}", hd.getUsername(), hd.getAge());
         log.info("helloData={}", hd);
