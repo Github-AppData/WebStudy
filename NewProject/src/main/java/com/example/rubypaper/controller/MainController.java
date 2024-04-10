@@ -9,17 +9,46 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 public class MainController {
 
-
     @GetMapping("/home")
     public String blogMain(){
 
         return "blog-home";
     }
 
-    @GetMapping("/about")
-    public String blogAbout(){
-        return "about";
+    /// Diretory of Produce Controller Start
+    @GetMapping("/churchProduce")
+    public String Produce(){
+        return "produce/churchProduce";
     }
+
+    @GetMapping("/produce/pastor")
+    public String ProducePastor(){
+        return "produce/pastor";
+    }
+
+    @GetMapping("/produce/history")
+    public String ProduceHistory(){
+        return "produce/history";
+    }
+
+    @GetMapping("/produce/goverment")
+    public String ProduceGoverment(){
+        return "produce/goverment";
+    }
+
+    @GetMapping("/produce/worship")
+    public String ProduceWorship(){
+        return "produce/worship";
+    }
+
+    @GetMapping("/produce/map")
+    public String ProduceMap(){
+        return "produce/map";
+    }
+
+
+
+    /// Diretory of Produce Controller End
 
     @GetMapping("/contact")
     public String blogContact(){
@@ -38,6 +67,20 @@ public class MainController {
 
         return "faq";
     }
+
+    @GetMapping("/portfolioOverview")
+    public String portfolioOverview(){
+
+        return "portfolioOverview";
+    }
+
+    @GetMapping("/portfolioItem")
+    public String portfolioItem(){
+
+        return "portfolioItem";
+    }
+
+
 
 
 }
