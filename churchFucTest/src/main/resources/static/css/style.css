@@ -3,9 +3,7 @@
     templated.co @templatedco
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
-
-@charset 'UTF-8';
-
+@charset "UTF-8";       /* 유효 */
 @font-face{font-family:'FontAwesome';src:url('font/fontawesome-webfont.eot?v=4.0.1');src:url('font/fontawesome-webfont.eot?#iefix&v=4.0.1') format('embedded-opentype'),url('font/fontawesome-webfont.woff?v=4.0.1') format('woff'),url('font/fontawesome-webfont.ttf?v=4.0.1') format('truetype'),url('font/fontawesome-webfont.svg?v=4.0.1#fontawesomeregular') format('svg');font-weight:normal;font-style:normal}
 
 /*********************************************************************************/
@@ -822,30 +820,52 @@
 /* Logo                                                                          */
 /*********************************************************************************/
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
 	#logo
 	{
-		padding-top: 150px;
+		/*padding-top: 150px;*/
+		font-size: 4vw; /* Adjust the font size for smaller screens */
 	}
 }
 
+
 	#logo
 	{
-		position: relative;
-		z-index: 1;
+		/*position: relative;*/
+		/*z-index: 1;*/
+		position: fixed; /* Set the position to fixed */
+		top: 20px; /* Adjust the top position according to your design */
+		left: 20px; /* Adjust the left position according to your design */
+		z-index: 1000; /* Ensure the logo stays above other content */
+
 	}
 	
-		#logo h1
+		#logo h4
 		{
-			font-family: 'Playfair Display', sans-serif;
-			text-align: left;
-			color: #FF9700;
+			font-family: "Song Myung", serif;
+			color: #ffffff;
 			display: block;
 			text-decoration: none;
 			font-weight: 300;
 			line-height: 1em;
-			font-size: 7em;
+			font-size: 35px; /* Adjust the font size using viewport units */
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 속성 추가 */
+
 		}
+
+		#logo h5
+		{
+			font-family: "Song Myung", serif;
+			color: #ffffff;
+			display: block;
+			text-decoration: none;
+			font-weight: 300;
+			line-height: 1em;
+			font-size: 100px; /* Adjust the font size using viewport units */
+			text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7); /* 그림자 속성 추가 */
+		}
+
+
 	
 		#logo a
 		{
@@ -908,7 +928,6 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
-@charset 'UTF-8';
 
 @font-face{font-family:'FontAwesome';src:url('font/fontawesome-webfont.eot?v=4.0.1');src:url('font/fontawesome-webfont.eot?#iefix&v=4.0.1') format('embedded-opentype'),url('font/fontawesome-webfont.woff?v=4.0.1') format('woff'),url('font/fontawesome-webfont.ttf?v=4.0.1') format('truetype'),url('font/fontawesome-webfont.svg?v=4.0.1#fontawesomeregular') format('svg');font-weight:normal;font-style:normal}
 
@@ -1013,34 +1032,30 @@ header
 {
 	margin-bottom: 1.6em;
 }
-
-	#featured1 {
-		width: 500px; /* featured 요소의 너비를 자동으로 조정합니다 */
-		display: inline-block; /* featured 요소를 인라인 블록 요소로 설정하여 컨텐츠에 맞게 크기를 조정합니다 */
-		background: #e0e0e0;
-	}
-	#featured2 {
-		width: 500px; /* featured 요소의 너비를 자동으로 조정합니다 */
-		display: inline-block; /* featured 요소를 인라인 블록 요소로 설정하여 컨텐츠에 맞게 크기를 조정합니다 */
-		background: #e0e0e0;
-	}
-
-/*featured start*/
-.featured__area{
-	float: left; /* 이미지를 왼쪽으로 정렬합니다 */
-	margin-top: 20px;
-	margin-left: 100px;
+#featured1{
+	width: 50%; /* Make each element take up 50% of the screen width */
+	height: 500px;
+	display: block;
+	float: left;
+	padding: 10px; /* Add some padding for spacing */
+	background-color: #0f6674;
 }
 
-#pastor_img {
-	width: 120px; /* 이미지의 최대 너비를 부모 요소의 너비에 맞게 조정합니다 */
-	height: 200px; /* 이미지의 높이를 자동으로 조정하여 비율 유지 */
+#featured2 {
+	width: 50%; /* Make each element take up 50% of the screen width */
+	height: 500px;
+	display: block;
+	float: left;
+	padding: 10px; /* Add some padding for spacing */
+	background-color: #0b2e13;
 }
 
-#fa_img {
-	width: 120px; /* 이미지의 최대 너비를 부모 요소의 너비에 맞게 조정합니다 */
-	height: 200px; /* 이미지의 높이를 자동으로 조정하여 비율 유지 */
+#img3 {
+	margin-top: 102px;
+	width: 320px;
+	height: 380px;
 }
+
 
 /*featured end*/
 
@@ -1739,6 +1754,7 @@ ul.contact li a:hover
 	background-attachment: fixed;
 	background-size: cover;
 	text-align: center;
+	height: 700px;
 }
 
 #header:before
@@ -1769,17 +1785,7 @@ ul.contact li a:hover
 	z-index: 1;
 }
 
-#logo h1
-{
-	font-family: 'Playfair Display', sans-serif;
-	text-align: left;
-	color: #FF9700;
-	display: block;
-	text-decoration: none;
-	font-weight: 300;
-	line-height: 1em;
-	font-size: 7em;
-}
+
 
 #logo a
 {
@@ -1868,8 +1874,9 @@ ul.contact li a:hover
 
 #main
 {
+	display: block;
 	position: relative;
-	background: #fff;
+	background: #ffffff;
 }
 
 .homepage #content
@@ -1940,12 +1947,6 @@ ul.contact li a:hover
 /* Featured                                                                      */
 /*********************************************************************************/
 
-#featured
-{
-	position: relative;
-	background: #f2f2f2;
-	text-align: center;
-}
 
 #featured h3
 {
@@ -1971,7 +1972,8 @@ ul.contact li a:hover
 {
 	position: relative;
 	text-align: center;
-	background: url(../img/headerImg.jpg) no-repeat center center;
+	height: 500px;
+	background: url(../img/pic01.jpg) no-repeat center center;
 	background-attachment: fixed;
 	background-size: cover;
 }
@@ -2037,11 +2039,6 @@ ul.contact li a:hover
 /* Main                                                                          */
 /*********************************************************************************/
 
-	#main
-	{
-		position: relative;
-		background: #fff;
-	}
 	
 	.homepage #content
 	{
@@ -2137,39 +2134,3 @@ ul.contact li a:hover
 /*********************************************************************************/
 /* Tweet                                                                         */
 /*********************************************************************************/
-	
-	#tweet
-	{
-		position: relative;
-		text-align: center;
-		background: url(../img/headerImg.jpg) no-repeat center center;
-		background-attachment: fixed;
-		background-size: cover;
-	}
-
-		#tweet:before
-		{
-			content: '';
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			background: rgba(64,64,64,0.5);
-		}
-	
-		#tweet section
-		{
-			border-top: 1px solid;
-			border-bottom: 1px solid;
-			border-color: rgba(255,255,255,.1);
-		}
-
-		#tweet blockquote
-		{
-			position: relative;
-			border: none;
-			margin: 0;
-			font-weight: 300;
-			color: rgba(255,255,255,.6);
-		}	
