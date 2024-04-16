@@ -6,27 +6,33 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TestController {
 
-    @GetMapping("/test1")
-    public String test1()
+    @GetMapping("/main")
+    public String main()
     {
-        return "index";
+        return "main";
     }
 
-    @GetMapping("/test2")
-    public String test2()
+    @GetMapping("/intro")
+    public String intro()
     {
-        return "left-sidebar";
+        return "intro";
     }
 
-    @GetMapping("/test3")
-    public String test3()
+    @GetMapping("/news")
+    public String news()
     {
-        return "no-sidebar";
+        return "news";
     }
 
-    @GetMapping("/test4")
-    public String test4()
+    @GetMapping("/sermons")
+    public String sermons()
     {
-        return "right-sidebar";
+        return "sermons";
+    }
+
+    @GetMapping("/newGeneration")
+    public String newGeneration()
+    {
+        return "newGeneration";
     }
 }

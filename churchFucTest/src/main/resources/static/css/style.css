@@ -1754,6 +1754,72 @@ ul.contact li a:hover
 {
 	color: #fff;
 }
+/*********************************************************************************/
+/* new_Header                                                                        */
+/*********************************************************************************/
+.new_container{
+	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	height: 100px;
+	padding-top: 230px;
+}
+#new_header
+{
+	position: relative;
+	background: url(../img/headerImg.jpg) no-repeat bottom center;
+	background-attachment: fixed;
+	background-size: cover;
+	text-align: center;
+	height: 370px;
+}
+
+#new_header:before
+{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgb(64,64,64,0.125);
+}
+
+#new_logo h4
+{
+	font-family: "Song Myung", serif;
+	color: #ffffff;
+	display: block;
+	text-decoration: none;
+	font-weight: 300;
+	line-height: 1em;
+	font-size: 45px; /* Adjust the font size using viewport units */
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 속성 추가 */
+}
+
+#new_logo h5
+{
+	font-family: "Song Myung", serif;
+	color: #ffffff;
+	display: block;
+	text-decoration: none;
+	font-weight: 300;
+	line-height: 1em;
+	font-size: 60px; /* Adjust the font size using viewport units */
+	text-shadow: 3px 3px 3px rgba(133, 128, 128, 0.7); /* 그림자 속성 추가 */
+}
+
+/*********************************************************************************/
+/* new_Header End                                                                  */
+/*********************************************************************************/
+
 
 /*********************************************************************************/
 /* Header                                                                        */
@@ -1766,7 +1832,7 @@ ul.contact li a:hover
 	background-attachment: fixed;
 	background-size: cover;
 	text-align: center;
-	height: 750px;
+	height: 650px;
 }
 
 #header:before
