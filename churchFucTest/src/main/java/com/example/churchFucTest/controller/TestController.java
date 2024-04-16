@@ -35,4 +35,13 @@ public class TestController {
     {
         return "newGeneration";
     }
+
+
+    @GetMapping("/test")
+    public String test()
+    {
+        return "test";
+    }
+
+
 }
