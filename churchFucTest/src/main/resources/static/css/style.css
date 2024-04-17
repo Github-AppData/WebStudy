@@ -882,6 +882,14 @@
 			color: #FFF;
 		}
 
+/*
+*/
+
+
+
+
+/**/
+
 /*********************************************************************************/
 /* Nav                                                                           */
 /*********************************************************************************/
@@ -900,6 +908,40 @@
 			font-family: 'Do Hyeon', sans-serif;
 			font-size: 25px;
 		}
+
+/******* nav dropdown ***********/
+#myDropdown1 li:hover, #myDropdown2 li:hover, #myDropdown3 li:hover, #myDropdown4 li:hover{
+	background-color: #000000;
+}
+
+#myDropdown1 a, #myDropdown2 a,
+#myDropdown3 a, #myDropdown4 a {
+	font-family: "Noto Serif KR", serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+
+}
+
+#myDropdown1:hover a, #myDropdown2:hover a,
+#myDropdown3:hover a, #myDropdown4:hover a {
+	display: block;
+}
+
+.nav-item:hover #myDropdown1, .nav-item:hover #myDropdown2,
+.nav-item:hover #myDropdown3, .nav-item:hover #myDropdown4 {
+	display: block;
+}
+
+.nav-item:hover #dropdown-link1, .nav-item:hover #dropdown-link2
+, .nav-item:hover #dropdown-link3, .nav-item:hover #dropdown-link4{
+	background-color: #ffffff;
+}
+/**************************/
+
+
+
+
 
 
 
@@ -1771,6 +1813,12 @@ ul.contact li a:hover
 	height: 100px;
 	padding-top: 230px;
 }
+#new_header_2
+{
+	position: relative;
+	text-align: center;
+	height: 370px;
+}
 #new_header
 {
 	position: relative;
@@ -1976,6 +2024,9 @@ ul.contact li a:hover
 /* Main                                                                          */
 /*********************************************************************************/
 
+.homepage{
+	background-color: #e0e0e0;
+}
 	
 	.homepage #content
 	{
@@ -1991,6 +2042,74 @@ ul.contact li a:hover
 		display: block;
 		padding-bottom: 0.50em;
 	}
+
+/************************ main **************************************/
+#main{
+	display: inline-block;
+	width: 100%;
+}
+
+#main_h2 {
+	width: 100%;
+	height: 50px;
+	margin-top: 60px;
+	margin-bottom: 40px;
+	font-family: "Noto Serif KR", serif;
+	font-size: 35px;
+	font-weight: 400;
+	color: black;
+	text-align: center;
+}
+
+#main h2 {
+	color: black;
+}
+
+#main_ch_description {
+	width: 88vw; /* 창 크기의 80% width를 적용 */
+	height: 800px; /* 창 크기의 80% width를 적용 */
+	max-width: 1100px; /* 최대 너비 설정 */
+	margin: 0 auto; /* 가운데 정렬 */
+	padding-left: 6%; /* 왼쪽 여백을 10%로 설정 */
+	padding-right: 6%; /* 오른쪽 여백을 10%로 설정 */
+	border-radius: 20px;
+	background-color: #ffffff;
+}
+
+#main_ch_description h1 {
+	font-family: "Noto Serif KR", serif;
+	font-size: 30px;
+	position: relative;
+	color: black;
+	text-align: left;
+	padding-top: 80px;
+	margin-bottom: 40px;
+}
+
+#main_ch_description p {
+	font-family: "Noto Serif KR", serif;
+	font-size: 15px;
+	color: black;
+	text-align: left;
+}
+
+#main_ch_de_detail {
+	width: 100%;
+	height: 100%;
+	float: left;
+
+}
+
+#main_img_area {
+	float: left;
+	width: 250px;
+	height: 300px;
+	display: inline-block;
+	margin-right: 20px;
+	background-image: url("../img/pic04.jpg");
+}
+
+/************************ main End **************************************/
 
 /*********************************************************************************/
 /* Last                                                                        */

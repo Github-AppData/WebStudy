@@ -25,6 +25,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Serif+KR&display=swap" rel="stylesheet">
 
 	<noscript>
 		<link rel="stylesheet" href="css/skel-noscript.css">
@@ -45,137 +47,113 @@
 <body class="homepage">
 
 <!-- Header -->
-<div id="new_header">
-	<div id="nav-wrapper">
-		<nav class="navbar navbar-expand-lg bg-white" style="margin-top: 7px">
-			<div class="container-fluid">
-				<a href="main">
-					<img id="img1" src="img/churchLogo.png" alt="" style="margin-left: 20px">
-					<img id="img2" src="img/churchName.png" alt="" >
-				</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div id="nav-wrapper">
+			<nav class="navbar navbar-expand-lg bg-white" style="margin-top: 7px">
+				<div class="container-fluid">
+					<a href="main">
+						<img id="img1" src="img/churchLogo.png" alt="" style="margin-left: 20px">
+						<img id="img2" src="img/churchName.png" alt="" >
+					</a>
+					<button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 20px">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 20px">
 
-						<!-- 교회소개 -->
-						<li class="nav-item dropdown">
-							<a  id="dropdown-link1" class="nav-link dropdown-toggle" href="intro" role="button" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="expandDropdown(this)" onmouseout="collapseDropdown(this)">교회소개</a>
-							<ul id="myDropdown1" class="dropdown-menu dropdown-menu-white">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><a class="dropdown-item" href="#">Something else here</a></li>
-							</ul>
-						</li>
+							<!-- 교회소개 -->
+							<li class="nav-item dropdown">
+								<a id="dropdown-link1" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" >교회소개</a>
+								<ul id="myDropdown1" class="dropdown-menu dropdown-menu-white">
+									<li><a class="dropdown-item" href="intro">교회소개</a></li>
+									<li><a class="dropdown-item" href="#">교회비전</a></li>
+									<li><a class="dropdown-item" href="#">교회역사</a></li>
+									<li><a class="dropdown-item" href="#">담임목사님 인사말</a></li>
+									<li><a class="dropdown-item" href="#">섬기는 자</a></li>
+									<li><a class="dropdown-item" href="#">예배시간 안내</a></li>
+									<li><a class="dropdown-item" href="#">오시는 길</a></li>
+								</ul>
+							</li>
 
-						<!------------------------------>
-						<li class="nav-item dropdown">
-							<a id="dropdown-link2" class="nav-link dropdown-toggle" href="sermons" role="button" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="expandDropdown(this)" onmouseout="collapseDropdown(this)">설교</a>
-							<ul id="myDropdown2" class="dropdown-menu dropdown-menu-white">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><a class="dropdown-item" href="#">Something else here</a></li>
-							</ul>
-						</li>
+							<!-- 설교 -->
+							<li class="nav-item dropdown">
+								<a id="dropdown-link2" class="nav-link dropdown-toggle" href="sermons" role="button" data-bs-toggle="dropdown" aria-expanded="false" >설교</a>
+								<ul id="myDropdown2" class="dropdown-menu dropdown-menu-white">
+									<li><a class="dropdown-item" href="#">주일 대 예배</a></li>
+									<li><a class="dropdown-item" href="#">수요예배</a></li>
+									<li><a class="dropdown-item" href="#">주보</a></li>
+								</ul>
+							</li>
 
-						<li class="nav-item dropdown">
-							<a id="dropdown-link3" class="nav-link dropdown-toggle" href="newGeneration" role="button" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="expandDropdown(this)" onmouseout="collapseDropdown(this)">다음세대</a>
-							<ul id="myDropdown3" class="dropdown-menu dropdown-menu-white">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><a class="dropdown-item" href="#">Something else here</a></li>
-							</ul>
-						</li>
+							<!-- 교회소개 -->
+							<li class="nav-item dropdown">
+								<a id="dropdown-link3" class="nav-link dropdown-toggle" href="newGeneration" role="button" data-bs-toggle="dropdown" aria-expanded="false" >다음세대</a>
+								<ul id="myDropdown3" class="dropdown-menu dropdown-menu-white">
+									<li><a class="dropdown-item" href="#">청년회</a></li>
+									<li><a class="dropdown-item" href="#">아동부</a></li>
+									<li><a class="dropdown-item" href="#">학생부</a></li>
+								</ul>
+							</li>
 
-						<li class="nav-item dropdown">
-							<a id="dropdown-link4" class="nav-link dropdown-toggle" href="news" role="button" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="expandDropdown(this)" onmouseout="collapseDropdown(this)">교회소식</a>
-							<ul id="myDropdown4" class="dropdown-menu dropdown-menu-white">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><a class="dropdown-item" href="#">Something else here</a></li>
-							</ul>
-						</li>
+							<!-- 교회소식 -->
+							<li class="nav-item dropdown">
+								<a id="dropdown-link4" class="nav-link dropdown-toggle" href="news" role="button" data-bs-toggle="dropdown" aria-expanded="false" >교회소식</a>
+								<ul id="myDropdown4" class="dropdown-menu dropdown-menu-white">
+									<li><a class="dropdown-item" href="#">게시판</a></li>
+									<li><a class="dropdown-item" href="#">공지사항</a></li>
+								</ul>
+							</li>
+						</ul>
 
-					</ul>
-					<form class="d-flex" role="search">
-						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Search</button>
-					</form>
+						<!-- search Area -->
+						<form class="d-flex" role="search">
+							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+							<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>
+					</div>
 				</div>
+			</nav>
+		</div>
+		<!-- Main -->
+		<div id="main">
+			<div id="main_h2">
+				<h2>교회소개</h2>
 			</div>
-		</nav>
-	</div>
-	<div class="new_container">
-		<!-- Logo -->
-		<div id="new_logo">
-			<h4 style="text-align: center">2024 표어</h4><br>
-			<h5 style="text-align: center">마음으로 뜨겁게 사랑하자</h5>
+			<div class="row justify-content-center">
+				<div class="col-lg-10 col-md-12">
+					<div id="main_ch_description" class="container-fluid">
+						<h1>하손들교회는</h1>
+						<div id="main_ch_detail">
+							<div id="main_img_area">
+
+							</div>
+							<p>
+
+								‘하나님 사랑, 이웃 사랑’을 표어로 하고 있습니다. 그리고 사람을 살리고 행복하게 하는 교회입니다.
+								오병이어교회는 1983년 7월 31일 광명시 광명5동 158-36번지에서 시작하여 지금까지 부흥하고 있는 교회입니다.
+								처음에 돈이 없어서 시멘트 블록으로 지은 이층집 15평을 보증금 250만 원에 월세 5만 원에 계약하였습니다.
+								개척 당시 권영구 목사와 사모 그리고 동생, 이렇게 3명이 시작하였는데 지금은 등록교인 1만 명이 넘는 교회로 성장하였습니다.
+								<br><br>
+								오병이어교회는 전도하여 부흥하는 교회입니다.
+								예수님 전도법과 예수님 관계 맺기법, 소원기도 전도, 목장추수행사, 물질 전도, 노방 전도, 지역 전도, 카페 전도, 직장 전도 등 다양한 전도 방법을 동원하여 매일 전도하는 팀, 매주 전도하는 팀 등 수십 개의 팀이 스스로 전도하고 있습니다.
+								오병이어교회는 초신자가 많은 교회입니다.
+								수평 이동으로 부흥하는 교회가 아닌 초신자가 등록하는 교회입니다.
+								2012년 1,200명 등록, 2013년 1,350명, 2014년 1,500명, 2015년 2,500명, 2016년 3,100명이 등록한 교회입니다. 그중에 95%가 초신자입니다.
+								<br><br>
+								오병이어교회는 예수님이 세우신 교회입니다.
+								1983년 권영구 목사와 사모가 특수 기도훈련을 받으면서 예수님께서 개척하라고 해서 세운 교회입니다.
+								그리고 하나님께서 역사하셔서 술집 골목에서도 부흥하여 1995년에 첫 번째 교회 건물을 지어 입당하였고, 2000년에 증축하였으며, 2012년 광명시 소하동의 대지 904평에 건평 4,069평을 건축하여 입당하였습니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
 		</div>
-	</div>
-</div>
-<!-- Main -->
-
-<div id="featured">
-	<h2>Church Schedule</h2>
-	<div id="featured1">
-		<h1>예배</h1>
-		<h4 id="featured1_1">주일 대 예배 10:45 am </h4>
-		<h4 id="featured1_2">수요 예배 7:40 pm </h4>
-	</div>
-	<div class="d-flex2"></div> <!-- 세로 구분선임 건들지 마셈 -->
-	<div id="featured2">
-		<h1>다음세대 예배</h1>
-		<h4 id="featured2_1">아동/학생부 예배 (주일) 2:00 pm </h4>
-		<h4 id="featured2_2">청년회 예배 (토) 9:50 am</h4>
-	</div>
-</div>
-
-<div id="content" class="container">
-	<div class="row">
-
-	</div>
-</div>
-<!-- Tweet -->
-<div id="tweet">
-	<div id="tweet_div_1">
-		<div id="tweet_div_2">
-			<h1>나중에 게시판 구현되면 연동할 예정. 사진도 교체될 예정</h1>
-		</div>
-	</div>
-
-</div>
-
-<div id="last">
-	<div id="last_1">
-		<h1>하손들교회</h1>
-	</div>
-	<div id="last_2">
-		<p>
-			(21059) 인천 계양구 주부토로532번길 8 (계산동)<br>
-			TEL: 010-1234-1234<br><br>
-			Copyright ⓒ 하손들교회 All rights reserved. Provided By 김태욱
-		</p>
-	</div>
 
 
 
-
-</div>
-
-	<script>
-		// 호버된 요소에 따라 드롭다운 메뉴를 확장 또는 축소하는 함수
-		function expandDropdown(element) {
-			var dropdownMenu = element.nextElementSibling;
-			dropdownMenu.classList.add("show");
-		}
-
-		function collapseDropdown(element) {
-			var dropdownMenu = element.nextElementSibling;
-			dropdownMenu.classList.remove("show");
-		}
-	</script>
 
 </body>
 

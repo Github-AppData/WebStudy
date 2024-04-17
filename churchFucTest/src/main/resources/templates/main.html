@@ -53,24 +53,59 @@
 							<img id="img1" src="img/churchLogo.png" alt="" style="margin-left: 20px">
 							<img id="img2" src="img/churchName.png" alt="" >
 						</a>
-						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
 							<ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 20px">
-								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="intro">교회소개</a>
+
+								<!-- 교회소개 -->
+								<li class="nav-item dropdown">
+									<a id="dropdown-link1" class="nav-link dropdown-toggle" href="intro" role="button" data-bs-toggle="dropdown" aria-expanded="false" >교회소개</a>
+									<ul id="myDropdown1" class="dropdown-menu dropdown-menu-white" >
+										<li><a class="dropdown-item" href="intro">교회소개</a></li>
+										<li><a class="dropdown-item" href="#">교회비전</a></li>
+										<li><a class="dropdown-item" href="#">교회역사</a></li>
+										<li><a class="dropdown-item" href="#">담임목사님 인사말</a></li>
+										<li><a class="dropdown-item" href="#">섬기는 자</a></li>
+										<li><a class="dropdown-item" href="#">예배시간 안내</a></li>
+										<li><a class="dropdown-item" href="#">오시는 길</a></li>
+									</ul>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="sermons">설교</a>
+
+								<!-- 설교 -->
+								<li class="nav-item dropdown">
+									<a id="dropdown-link2" class="nav-link dropdown-toggle" href="sermons" role="button" data-bs-toggle="dropdown" aria-expanded="false" >설교</a>
+									<ul id="myDropdown2" class="dropdown-menu dropdown-menu-white">
+										<li><a class="dropdown-item" href="#">주일 대 예배</a></li>
+										<li><a class="dropdown-item" href="#">수요예배</a></li>
+										<li><a class="dropdown-item" href="#">주보</a></li>
+									</ul>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="newGeneration">다음세대</a>
+
+								<!-- 교회소개 -->
+								<li class="nav-item dropdown">
+									<a id="dropdown-link3" class="nav-link dropdown-toggle" href="newGeneration" role="button" data-bs-toggle="dropdown" aria-expanded="false" >다음세대</a>
+									<ul id="myDropdown3" class="dropdown-menu dropdown-menu-white">
+										<li><a class="dropdown-item" href="#">다음세대 소개</a></li>
+										<li><a class="dropdown-item" href="#">청년회</a></li>
+										<li><a class="dropdown-item" href="#">아동부</a></li>
+										<li><a class="dropdown-item" href="#">학생부</a></li>
+									</ul>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="news">교회소식</a>
+
+								<!-- 교회소식 -->
+								<li class="nav-item dropdown">
+									<a id="dropdown-link4" class="nav-link dropdown-toggle" href="news" role="button" data-bs-toggle="dropdown" aria-expanded="false" >교회소식</a>
+									<ul id="myDropdown4" class="dropdown-menu dropdown-menu-white">
+										<li><a class="dropdown-item" href="#">게시판</a></li>
+										<li><a class="dropdown-item" href="#">공지사항</a></li>
+									</ul>
 								</li>
 							</ul>
+
+							<!-- search Area -->
 							<form class="d-flex" role="search">
 								<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 								<button class="btn btn-outline-success" type="submit">Search</button>
