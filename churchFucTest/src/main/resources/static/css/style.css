@@ -910,12 +910,12 @@
 		}
 
 /******* nav dropdown ***********/
-#myDropdown1 li:hover, #myDropdown2 li:hover, #myDropdown3 li:hover, #myDropdown4 li:hover{
+#myDropdown1 li:hover, #myDropdown2 li:hover, #myDropdown3 li:hover, #myDropdown4 li:hover, #myDropdown5 li:hover{
 	background-color: #000000;
 }
 
 #myDropdown1 a, #myDropdown2 a,
-#myDropdown3 a, #myDropdown4 a {
+#myDropdown3 a, #myDropdown4 a, #myDropdown5 a {
 	font-family: "Noto Serif KR", serif;
 	font-style: normal;
 	font-weight: 400;
@@ -924,17 +924,17 @@
 }
 
 #myDropdown1:hover a, #myDropdown2:hover a,
-#myDropdown3:hover a, #myDropdown4:hover a {
+#myDropdown3:hover a, #myDropdown4:hover a, #myDropdown5:hover a {
 	display: block;
 }
 
 .nav-item:hover #myDropdown1, .nav-item:hover #myDropdown2,
-.nav-item:hover #myDropdown3, .nav-item:hover #myDropdown4 {
+.nav-item:hover #myDropdown3, .nav-item:hover #myDropdown4, .nav-item:hover #myDropdown5 {
 	display: block;
 }
 
 .nav-item:hover #dropdown-link1, .nav-item:hover #dropdown-link2
-, .nav-item:hover #dropdown-link3, .nav-item:hover #dropdown-link4{
+, .nav-item:hover #dropdown-link3, .nav-item:hover #dropdown-link4, .nav-item:hover #dropdown-link5{
 	background-color: #ffffff;
 }
 /**************************/
@@ -1870,6 +1870,54 @@ ul.contact li a:hover
 
 
 /*********************************************************************************/
+/* chHistory_header  Start                                                          */
+/*********************************************************************************/
+
+#chHistory_header{
+	position: relative;
+	background: url(../img/headerImg.jpg) no-repeat bottom center;
+	background-attachment: fixed;
+	background-size: cover;
+	text-align: center;
+	height: 400px;
+	width: 100%;
+}
+
+#chHistory_Name {
+	width: 100%;
+	position: fixed; /* Set the position to fixed */
+	top: 20px; /* Adjust the top position according to your design */
+	left: 20px; /* Adjust the left position according to your design */
+	z-index: 1000; /* Ensure the logo stays above other content */
+}
+
+#chHistory_logo {
+	width: 100%;
+	position: fixed; /* Set the position to fixed */
+	top: 20px; /* Adjust the top position according to your design */
+	left: 20px; /* Adjust the left position according to your design */
+	z-index: 1000; /* Ensure the logo stays above other content */
+}
+
+#chHistory_logo h5 {
+	font-family: "Song Myung", serif;
+	color: #ffffff;
+	display: block;
+	text-decoration: none;
+	font-weight: 300;
+	line-height: 1em;
+	font-size: 100px; /* Adjust the font size using viewport units */
+	text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7); /* 그림자 속성 추가 */
+}
+
+/*********************************************************************************/
+/* chHistory_header  End                                                          */
+/*********************************************************************************/
+
+
+
+
+/*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
 
@@ -2063,6 +2111,7 @@ ul.contact li a:hover
 
 #main h2 {
 	color: black;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* 그림자 속성 추가 */
 }
 
 #main_ch_description {
@@ -2070,8 +2119,8 @@ ul.contact li a:hover
 	height: 800px; /* 창 크기의 80% width를 적용 */
 	max-width: 1100px; /* 최대 너비 설정 */
 	margin: 0 auto; /* 가운데 정렬 */
-	padding-left: 6%; /* 왼쪽 여백을 10%로 설정 */
-	padding-right: 6%; /* 오른쪽 여백을 10%로 설정 */
+	padding-left: 2%; /* 왼쪽 여백을 10%로 설정 */
+	padding-right: 2%; /* 오른쪽 여백을 10%로 설정 */
 	border-radius: 20px;
 	background-color: #ffffff;
 }
@@ -2089,25 +2138,96 @@ ul.contact li a:hover
 #main_ch_description p {
 	font-family: "Noto Serif KR", serif;
 	font-size: 15px;
-	color: black;
+	color: #1f2023;
 	text-align: left;
 }
 
-#main_ch_de_detail {
-	width: 100%;
-	height: 100%;
-	float: left;
 
-}
 
 #main_img_area {
 	float: left;
 	width: 250px;
 	height: 300px;
+	border-radius: 10px;
 	display: inline-block;
 	margin-right: 20px;
 	background-image: url("../img/pic04.jpg");
 }
+
+/***********************************************************/
+/********** pastor **************************************/
+/***************************************************/
+#main_h2 p {
+	color: #5a6268;
+	font-family: "Noto Serif KR", serif;
+	font-size: 15px;
+	margin-top: 10px;
+}
+
+#ch_detail_pastor {
+	margin-top: 40px;
+}
+
+/* 목사님 이미지 + 경력 컨테이너 */
+#pastor_container {
+	display: flex;
+	flex-direction: column;
+	float: left;
+}
+/* 목사님 이미지 */
+#pastor_imgArea {
+	border-radius: 10px;
+	float: left;
+	width: 220px;
+	height: 330px;
+	display: inline-block;
+	margin-right: 20px;
+	background-image: url("../img/pastor.jpg");
+}
+
+#pastor_description {
+	width: 100%;
+	height: 700px;
+	/** 내가 이거 하나 주석 처리 하느라고 1시간이 걸렸네 아후 진짜 심한 말 나온다. **/
+	/*float: left;*/
+	text-align: left;
+}
+
+
+/***************** 목사님 경력 *************************/
+#pastor_career {
+	margin-top: 20px;
+	width: 220px;
+	height: 330px;
+	display: inline-block;
+	margin-right: 20px;
+	background-color: #ffffff;
+	float: left;
+
+	font-family: "Song Myung", serif;
+	font-size: 18px;
+	color: #565555;
+}
+
+#pastor_career h3 {
+	margin-left: 5px;
+	margin-bottom: 35px;
+	font-family: "Noto Serif KR", serif;
+	font-size: 30px;
+	font-weight: 300;
+	color: black;
+
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* 그림자 속성 추가 */
+
+}
+/****************************************/
+
+
+
+/***********************************************************/
+/********** pastor **************************************/
+/***************************************************/
+
 
 /************************ main End **************************************/
 
@@ -2117,37 +2237,39 @@ ul.contact li a:hover
 	
 	#last
 	{
-		margin-top: 50px;
 		width: 100%;
-		height: 150px;
-		margin-left: 100px;
-
+		height: 230px;
+		background-color: #153587;
 		font-family: 'Do Hyeon', sans-serif;
 	}
 
 	#last_1{
+		margin-top: 30px;
 		margin-left: 100px;
 		width: 100px;
 		float: left;
-		height: 100%;
+		height: 100px;
 
 	}
 
 	#last_1 h1 {
 		font-family: 'Do Hyeon', sans-serif;
 		font-size: 25px;
+		color: #ecec42;
 	}
 
 	#last_2{
 		width: 530px;
+		margin-top: 30px;
 		margin-left: 100px;
 		float: left;
-		height: 100%;
+		height: 100px;
 	}
 
 	#last_2 p {
 		font-family: 'Do Hyeon', sans-serif;
 		font-size: 20px;
+		color: #ffffff;
 	}
 
 
