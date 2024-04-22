@@ -18,7 +18,7 @@ public class TestController {
     @GetMapping("/intro")
     public String intro()
     {
-        return "intro";
+        return "ch_intro";
     }
 
     // 교회 역사
@@ -35,27 +35,41 @@ public class TestController {
         return "ch_pastor";
     }
 
+    @GetMapping("/ch_servePeople")
+    public String ch_servePeople()
+    {
+        return "ch_servePeople";
+    }
+
+
 
 
     // 교회 소식
-    @GetMapping("/news")
+    @GetMapping("/ch_news")
     public String news()
     {
-        return "news";
+        return "ch_news";
     }
 
     // 설교
-    @GetMapping("/sermons")
+    @GetMapping("/ch_sermons")
     public String sermons()
     {
-        return "sermons";
+        return "ch_sermons";
     }
 
     // 다음 세대
-    @GetMapping("/newGeneration")
+    @GetMapping("/ch_newGeneration")
     public String newGeneration()
     {
-        return "newGeneration";
+        return "ch_newGeneration";
+    }
+
+    // 다음 세대
+    @GetMapping("/ch_Contact")
+    public String ch_Contact()
+    {
+        return "ch_Contact";
     }
 
 
@@ -64,6 +78,7 @@ public class TestController {
     {
         return "test";
     }
+
 
 
 }

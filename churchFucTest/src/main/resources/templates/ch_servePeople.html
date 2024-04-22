@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+	<title>Bootstrap Example</title>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<title>Hasondle Church</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900" rel="stylesheet" type="text/css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/skel.min.js"></script>
+	<script src="js/skel-panels.min.js"></script>
+	<script src="js/init.js"></script>
+
+	<!-- 구글 폰트 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Serif+KR&display=swap" rel="stylesheet">
+
+	<noscript>
+		<link rel="stylesheet" href="css/skel-noscript.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/style-desktop.css">
+	</noscript>
+
+	<style>
+
+		h1 {
+			font-family: 'Playfair Display', sans-serif;
+			text-align: left;
+			color: #FF9700;
+			/* 다른 스타일 속성 추가 가능 */
+		}
+	</style>
+</head>
+<body class="homepage">
+
+<!-- Header -->
+		<div id="nav-wrapper">
+			<nav class="navbar navbar-expand-lg bg-white" style="margin-top: 7px">
+				<div class="container-fluid">
+					<a href="main">
+						<img id="img2" src="img/ch_logo.png" alt="" >
+					</a>
+					<button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 20px">
+
+							<!-- 교회소개 -->
+							<li class="nav-item dropdown">
+								<a id="dropdown-link1" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" >교회소개</a>
+								<ul id="myDropdown1" class="dropdown-menu dropdown-menu-white">
+									<li><a class="dropdown-item" href="intro">교회소개</a></li>
+									<li><a class="dropdown-item" href="#">교회역사</a></li>
+									<li><a class="dropdown-item" href="#">담임목사님 인사말</a></li>
+									<li><a class="dropdown-item" href="#">섬기는 자</a></li>
+									<li><a class="dropdown-item" href="#">예배시간 안내</a></li>
+									<li><a class="dropdown-item" href="#">오시는 길</a></li>
+								</ul>
+							</li>
+
+							<!-- 설교 -->
+							<li class="nav-item dropdown">
+								<a id="dropdown-link2" class="nav-link dropdown-toggle" href="sermons" role="button" data-bs-toggle="dropdown" aria-expanded="false" >설교</a>
+								<ul id="myDropdown2" class="dropdown-menu dropdown-menu-white">
+									<li><a class="dropdown-item" href="#">주일 대 예배</a></li>
+									<li><a class="dropdown-item" href="#">수요예배</a></li>
+									<li><a class="dropdown-item" href="#">주보</a></li>
+								</ul>
+							</li>
+
+							<!-- 교회소개 -->
+							<li class="nav-item dropdown">
+								<a id="dropdown-link3" class="nav-link dropdown-toggle" href="newGeneration" role="button" data-bs-toggle="dropdown" aria-expanded="false" >다음세대</a>
+								<ul id="myDropdown3" class="dropdown-menu dropdown-menu-white">
+									<li><a class="dropdown-item" href="#">청년회</a></li>
+									<li><a class="dropdown-item" href="#">아동부</a></li>
+									<li><a class="dropdown-item" href="#">학생부</a></li>
+								</ul>
+							</li>
+
+<!--							153587-->
+							<!-- 교회소식 -->
+							<li class="nav-item dropdown">
+								<a id="dropdown-link4" class="nav-link dropdown-toggle" href="news" role="button" data-bs-toggle="dropdown" aria-expanded="false" >교회소식</a>
+								<ul id="myDropdown4" class="dropdown-menu dropdown-menu-white">
+									<li><a class="dropdown-item" href="#">게시판</a></li>
+									<li><a class="dropdown-item" href="#">공지사항</a></li>
+								</ul>
+							</li>
+
+							<!-- 자료실 -->
+							<li class="nav-item dropdown">
+								<a id="dropdown-link5" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >자료실</a>
+								<ul id="myDropdown5" class="dropdown-menu dropdown-menu-white">
+									<li><a class="dropdown-item" href="#">자료실</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<!-- search Area -->
+						<form class="d-flex" role="search">
+							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+							<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<!-- Main -->
+		<div id="main">
+			<div id="main_h2">
+				<h2>섬기는 자 소개</h2>
+				<p>저희 섬기는 자는 담임목사님을 도와 최선을 다하고 있습니다.</p>
+			</div>
+			<div class="row justify-content-center">
+					<div id="main_ch_description" class="container-fluid">
+
+						<div class="ch_detail_servePeople">
+
+							<div class="servePeople_container">
+								<div class="servePeople_imgArea" id="servePeople_img1"></div>
+								<div class="name"><h2>홍길동 권사님</h2></div>
+							</div>
+
+
+							<div class="servePeople_container">
+								<div class="servePeople_imgArea" id="servePeople_img2"></div>
+								<div class="name"><h2>홍길동 권사님</h2></div>
+							</div>
+
+							<div class="servePeople_container">
+								<div class="servePeople_imgArea" id="servePeople_img3"></div>
+								<div class="name"><h2>홍길동 권사님</h2></div>
+							</div>
+						</div>
+
+						<div class="ch_detail_servePeople">
+
+							<div class="servePeople_container">
+								<div class="servePeople_imgArea" id="servePeople_img4"></div>
+								<div class="name"><h2>홍길동 권사님</h2></div>
+							</div>
+
+							<div class="servePeople_container">
+								<div class="servePeople_imgArea" id="servePeople_img5"></div>
+								<div class="name"><h2>홍길동 권사님</h2></div>
+							</div>
+
+							<div class="servePeople_container">
+								<div class="servePeople_imgArea" id="servePeople_img6"></div>
+								<div class="name"><h2>홍길동 권사님</h2></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+
+
+	<div id="last">
+		<div id="last_1">
+			<h1>하손들교회</h1>
+		</div>
+		<div id="last_2">
+			<p>
+				(21059) 인천 계양구 주부토로532번길 8 (계산동)<br>
+				TEL: 010-1234-1234<br><br>
+				Copyright ⓒ 하손들교회 All rights reserved. Provided By 김태욱
+			</p>
+		</div>
+	</div>
+
+</body>
+
+</html>
