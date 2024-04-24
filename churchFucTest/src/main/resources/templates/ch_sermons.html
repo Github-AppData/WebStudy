@@ -8,7 +8,11 @@
 		<title>Bootstrap Example</title>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+
 		<title>Hasondle Church</title>
+		<script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/1a390536/www-widgetapi.vflset/www-widgetapi.js" async=""></script>
+
+
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta name="description" content="">
 		<meta name="keywords" content="">
@@ -42,16 +46,13 @@
 			}
 		</style>
 	</head>
-	<body class="homepage">
-
+	<body class="sermons_body">
 		<!-- Header -->
-		<div id="new_header">
 			<div id="nav-wrapper">
 				<nav class="navbar navbar-expand-lg bg-white" style="margin-top: 7px">
 					<div class="container-fluid">
 						<a href="main">
-							<img id="img1" src="img/churchLogo.png" alt="" style="margin-left: 20px">
-							<img id="img2" src="img/churchName.png" alt="" >
+							<img id="img2" src="img/ch_logo.png" alt="" >
 						</a>
 						<button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
@@ -64,13 +65,11 @@
 								<li class="nav-item dropdown">
 									<a id="dropdown-link1" class="nav-link dropdown-toggle" href="intro" role="button" data-bs-toggle="dropdown" aria-expanded="false" >교회소개</a>
 									<ul id="myDropdown1" class="dropdown-menu dropdown-menu-white" >
-										<li><a class="dropdown-item" href="#">교회소개</a></li>
-										<li><a class="dropdown-item" href="#">교회비전</a></li>
-										<li><a class="dropdown-item" href="#">교회역사</a></li>
-										<li><a class="dropdown-item" href="#">담임목사님 인사말</a></li>
-										<li><a class="dropdown-item" href="#">섬기는 자</a></li>
-										<li><a class="dropdown-item" href="#">예배시간 안내</a></li>
-										<li><a class="dropdown-item" href="#">오시는 길</a></li>
+										<li><a class="dropdown-item" href="ch_intro">교회소개</a></li>
+										<li><a class="dropdown-item" href="ch_history">교회역사</a></li>
+										<li><a class="dropdown-item" href="ch_pastor">담임목사님 인사말</a></li>
+										<li><a class="dropdown-item" href="ch_servePeople">섬기는 자</a></li>
+										<li><a class="dropdown-item" href="ch_way">오시는 길</a></li>
 									</ul>
 								</li>
 
@@ -88,6 +87,7 @@
 								<li class="nav-item dropdown">
 									<a id="dropdown-link3" class="nav-link dropdown-toggle" href="newGeneration" role="button" data-bs-toggle="dropdown" aria-expanded="false" >다음세대</a>
 									<ul id="myDropdown3" class="dropdown-menu dropdown-menu-white">
+										<li><a class="dropdown-item" href="#">다음세대 소개</a></li>
 										<li><a class="dropdown-item" href="#">청년회</a></li>
 										<li><a class="dropdown-item" href="#">아동부</a></li>
 										<li><a class="dropdown-item" href="#">학생부</a></li>
@@ -102,6 +102,15 @@
 										<li><a class="dropdown-item" href="#">공지사항</a></li>
 									</ul>
 								</li>
+
+								<!-- 교회소식 -->
+								<li class="nav-item dropdown">
+									<a id="dropdown-link5" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >자료실</a>
+									<ul id="myDropdown5" class="dropdown-menu dropdown-menu-white">
+										<li><a class="dropdown-item" href="#">자료실</a></li>
+									</ul>
+								</li>
+
 							</ul>
 
 							<!-- search Area -->
@@ -112,62 +121,25 @@
 						</div>
 					</div>
 				</nav>
-			</div>
-			<div class="new_container">
-				<!-- Logo -->
-				<div id="new_logo">
-					<h4 style="text-align: center">2024 표어</h4><br>
-					<h5 style="text-align: center">마음으로 뜨겁게 사랑하자</h5>
-				</div>
-			</div>
-		</div>
-		<!-- Main -->
+			</div> <!-- nav-wrapper -->
 
-			<div id="featured">
-				<h2>Church Schedule</h2>
-				<div id="featured1">
-					<h1>예배</h1>
-					<h4 id="featured1_1">주일 대 예배 10:45 am </h4>
-					<h4 id="featured1_2">수요 예배 7:40 pm </h4>
-				</div>
-				<div class="d-flex2"></div> <!-- 세로 구분선임 건들지 마셈 -->
-				<div id="featured2">
-					<h1>다음세대 예배</h1>
-					<h4 id="featured2_1">아동/학생부 예배 (주일) 2:00 pm </h4>
-					<h4 id="featured2_2">청년회 예배 (토) 9:50 am</h4>
+			<div id="chSermons_header">
+				<div id="chSer_header_h2">
+						<h2>주일예배</h2>
 				</div>
 			</div>
 
-			<div id="content" class="container">
-				<div class="row">
+			<div id="chSermons_body">
 
+				<div class="youtube-container" id="youtube-container">
+					<iframe class="youtube_iframe" id="idYoutubeIframe" frameborder="0"
+							allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" title="[사랑의교회] 용광로 속에서도 함께하시는 예수님 - 오정현 목사"
+							src="https://www.youtube.com/embed/QmzD9mRN8uo?start=0&amp;controls=1&amp;autoplay=1&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.sarang.org&amp;widgetid=1" data-gtm-yt-inspected-7="true">
+					</iframe>
 				</div>
+
 			</div>
-		<!-- Tweet -->
-		<div id="tweet">
-			<div id="tweet_div_1">
-				<div id="tweet_div_2">
-					<h1>나중에 게시판 구현되면 연동할 예정. 사진도 교체될 예정</h1>
-				</div>
-			</div>
-
-		</div>
-
-		<div id="last">
-			<div id="last_1">
-				<h1>하손들교회</h1>
-			</div>
-			<div id="last_2">
-				<p>
-					(21059) 인천 계양구 주부토로532번길 8 (계산동)<br>
-					TEL: 010-1234-1234<br><br>
-					Copyright ⓒ 하손들교회 All rights reserved. Provided By 김태욱
-				</p>
-			</div>
-
-
-		</div>
-
 	</body>
 
 </html>

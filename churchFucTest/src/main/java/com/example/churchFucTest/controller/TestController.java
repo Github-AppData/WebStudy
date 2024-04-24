@@ -15,8 +15,8 @@ public class TestController {
 
 
     /// 교회소개 ///
-    @GetMapping("/intro")
-    public String intro()
+    @GetMapping("/ch_intro")
+    public String ch_intro()
     {
         return "ch_intro";
     }
@@ -65,11 +65,18 @@ public class TestController {
         return "ch_newGeneration";
     }
 
-    // 다음 세대
+    // 오시는 길
     @GetMapping("/ch_Contact")
     public String ch_Contact()
     {
         return "ch_Contact";
+    }
+
+    // 오시는 길
+    @GetMapping("/ch_way")
+    public String ch_way()
+    {
+        return "ch_way";
     }
 
 

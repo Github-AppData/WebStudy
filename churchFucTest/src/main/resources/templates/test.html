@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Google Maps</title>
-    <script defer src="js/index.js"></script>
-    <script
-            defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAotglRdjtqim1EmPKNjtd2SUYTSRTj6zE&callback=initMap"
-    ></script>
+    <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/1a390536/www-widgetapi.vflset/www-widgetapi.js" async=""></script>
 </head>
 <body>
-<div id="map" style="height: 600px;"></div>
+    <div class="youtube-container" id="youtube-container">
+        <iframe id="idYoutubeIframe" frameborder="0"
+                allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" title="[사랑의교회] 용광로 속에서도 함께하시는 예수님 - 오정현 목사"
+                width="640" height="360" src="https://www.youtube.com/embed/QmzD9mRN8uo?start=0&amp;controls=1&amp;autoplay=1&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.sarang.org&amp;widgetid=1" data-gtm-yt-inspected-7="true">
+        </iframe>
+    </div>
+
+    <div class="youtube-container">
+        <video id="video1" width="640" height="360" controls>
+            <source src="../video/song_0421.mp4" type="video/mp4">
+        </video>
+    </div>
 </body>
 </html>

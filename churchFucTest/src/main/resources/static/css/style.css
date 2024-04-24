@@ -1889,6 +1889,8 @@ ul.contact li a:hover
 	padding-top: 100px;
 }
 
+
+
 #chHistory_header{
 	display: inline-block;
 	width: 100%;
@@ -2318,7 +2320,120 @@ ul.contact li a:hover
 }
 
 /***********************************************************/
-/********** pastor **************************************/
+/********** way
+/***************************************************/
+
+#ch_detail_way {
+	margin-top: 40px;
+	height: 500px;
+}
+
+#way_description {
+	width: 100%;
+	height: 100%;
+	/** 내가 이거 하나 주석 처리 하느라고 1시간이 걸렸네 아후 진짜 심한 말 나온다. **/
+	/*float: left;*/
+	text-align: left;
+}
+
+#way_detail{
+	margin-top: 30px;
+	height: 100px;
+	width: 80%;
+}
+
+#way_detail{
+	width: 96%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+#map {
+	width: 96%;
+	margin-left: 2%;
+	margin-right: 2%;
+	height: 500px;
+}
+
+
+/***********************************************************/
+/********** way End
+/***************************************************/
+
+
+/***********************************************************/
+/********** Sermons Start
+/***************************************************/
+
+.youtube-container {
+	position: relative;
+	width: 100%;
+	height: 700px;
+	z-index: 2;
+}
+
+.youtube_iframe{
+	width: 100%;
+	padding-left: 12%;
+	padding-right: 12%;
+
+	height: 100%;
+}
+
+#video1{
+	width: 640px;
+	height: 360px;
+}
+
+#chSermons_header{
+	display: block;
+	width: 100%;
+	padding-left: 5%;
+	position: relative;
+	background-size: cover;
+	text-align: center;
+	height: 170px;
+}
+
+#chSer_header_h2{
+	z-index: 100;
+	position: relative;
+	width: 100%;
+	height: 155px;
+	background-color: #ffffff;
+}
+
+#chSer_header_h2 h2{
+	padding-top: 110px;
+	padding-left: 50px;
+	color: black;
+	font-weight: 700;
+	text-align: left;
+	text-shadow: 1px 1px 1px #ffffff;
+	font-family: 'Noto Sans KR', sans-serif;
+
+	font-size: 35px;
+}
+
+#chSermons_body{
+	width: 100%;
+	height: 400px;
+	background-color: #ffffff;
+	z-index: 1;
+}
+
+.sermons_body{
+	background-color: #ffffff;
+}
+
+/***********************************************************/
+/********** Sermons End
+/***************************************************/
+
+
+
+/***********************************************************/
+/********** pastor
 /***************************************************/
 #main_h2 p {
 	color: #5a6268;
@@ -2329,7 +2444,6 @@ ul.contact li a:hover
 
 #ch_detail_pastor {
 	margin-top: 40px;
-
 }
 
 /* 목사님 이미지 + 경력 컨테이너 */
@@ -2554,22 +2668,8 @@ ul.contact li a:hover
 /*********************************************************************************/
 
 
-/*********************************************************************************/
-/* map                                                                      */
-/*********************************************************************************/
 
-#map {
-	width: 100%;
-	height: 450px;
-}
 
-#map iframe {
-	width: 100%;
-}
-
-/*********************************************************************************/
-/* map End                                                                      */
-/*********************************************************************************/
 
 
 

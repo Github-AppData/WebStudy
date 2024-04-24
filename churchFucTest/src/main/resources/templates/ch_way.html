@@ -10,11 +10,13 @@
 
 	<title>Hasondle Church</title>
 
+	<!-------------- Google map -------------->
 	<script defer src="js/index.js"></script>
 	<script
 			defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAotglRdjtqim1EmPKNjtd2SUYTSRTj6zE&callback=initMap"
 	></script>
+	<!-------------- Google map -------------->
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="description" content="">
@@ -40,8 +42,6 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/style-desktop.css">
 	</noscript>
-	<!-- Google Map API	-->
-	</script>
 
 	<style>
 
@@ -73,12 +73,11 @@
 							<li class="nav-item dropdown">
 								<a id="dropdown-link1" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" >교회소개</a>
 								<ul id="myDropdown1" class="dropdown-menu dropdown-menu-white">
-									<li><a class="dropdown-item" href="intro">교회소개</a></li>
-									<li><a class="dropdown-item" href="#">교회역사</a></li>
-									<li><a class="dropdown-item" href="#">담임목사님 인사말</a></li>
-									<li><a class="dropdown-item" href="#">섬기는 자</a></li>
-									<li><a class="dropdown-item" href="#">예배시간 안내</a></li>
-									<li><a class="dropdown-item" href="#">오시는 길</a></li>
+									<li><a class="dropdown-item" href="ch_intro">교회소개</a></li>
+									<li><a class="dropdown-item" href="ch_history">교회역사</a></li>
+									<li><a class="dropdown-item" href="ch_pastor">담임목사님 인사말</a></li>
+									<li><a class="dropdown-item" href="ch_servePeople">섬기는 자</a></li>
+									<li><a class="dropdown-item" href="ch_way">오시는 길</a></li>
 								</ul>
 							</li>
 
@@ -102,6 +101,7 @@
 								</ul>
 							</li>
 
+<!--							153587-->
 							<!-- 교회소식 -->
 							<li class="nav-item dropdown">
 								<a id="dropdown-link4" class="nav-link dropdown-toggle" href="news" role="button" data-bs-toggle="dropdown" aria-expanded="false" >교회소식</a>
@@ -130,19 +130,48 @@
 			</nav>
 		</div>
 		<!-- Main -->
-		<!-- Map Begin -->
-		<div id="map">
+		<div id="main">
+			<div id="main_h2">
+				<h2>오시는 길</h2>
+				<p>하손들교회는 계양구 계산동에 있습니다.</p>
+			</div>
+			<div class="row justify-content-center">
+					<div id="main_ch_description" class="container-fluid">
+						<div id="ch_detail_way">
+							<div id="way_description">
+								<div id="map">
+
+
+								</div>
+							</div>
+						</div>
+
+						<div id="way_detail">
+							<p>
+								[지하철 & 버스 / 1호선 계산역] <br>
+								- 지하철 1번 출구, 도보 5분
+
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+	<div id="last">
+		<div id="last_1">
+			<h1>하손들교회</h1>
 		</div>
-		<!-- Map End -->
-
-
-		<div id="contact_main">
-
+		<div id="last_2">
+			<p>
+				(21059) 인천 계양구 주부토로532번길 8 (계산동)<br>
+				TEL: 010-1234-1234<br><br>
+				Copyright ⓒ 하손들교회 All rights reserved. Provided By 김태욱
+			</p>
 		</div>
-
-
-
-
+	</div>
 
 </body>
 
