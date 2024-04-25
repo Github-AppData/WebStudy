@@ -121,7 +121,7 @@
 		#img2 {
 			width: 200px;
 			height: 50px;
-			margin-left: 10px;
+			margin-left: 50px;
 		}
 
 
@@ -1107,6 +1107,10 @@ p, ul, ol, dl, table
 	margin-top: 100px;
 }
 
+#hr{
+	border: black;
+}
+
 #img3 {
 	margin-top: 102px;
 	width: 320px;
@@ -1128,11 +1132,13 @@ p, ul, ol, dl, table
 	height: 50px;
 }
 
+/*********** 하손들교회 로고 **********/
 #img2 {
 	width: 200px;
 	height: 50px;
-	margin-left: 10px;
+	margin-left: 45px;
 }
+
 
 
 .header__banner a {
@@ -2374,8 +2380,8 @@ ul.contact li a:hover
 
 .youtube_iframe{
 	width: 100%;
-	padding-left: 12%;
-	padding-right: 12%;
+	padding-left: 10%;
+	padding-right: 10%;
 
 	height: 100%;
 }
@@ -2405,7 +2411,7 @@ ul.contact li a:hover
 
 #chSer_header_h2 h2{
 	padding-top: 110px;
-	padding-left: 50px;
+	padding-left: 20px;
 	color: black;
 	font-weight: 700;
 	text-align: left;
@@ -2417,7 +2423,7 @@ ul.contact li a:hover
 
 #chSermons_body{
 	width: 100%;
-	height: 400px;
+	height: 1000px;
 	background-color: #ffffff;
 	z-index: 1;
 }
@@ -2425,6 +2431,44 @@ ul.contact li a:hover
 .sermons_body{
 	background-color: #ffffff;
 }
+
+#chSermons_description{
+	width: 100%;
+	height: 100px;
+	padding-left: 5%;
+	margin-top: 50px;
+
+}
+
+#p1{
+	font-size: 28px;
+	font-family: 'Do Hyeon', sans-serif;
+	color: black;
+	font-weight: 150;
+}
+
+#p2{
+	font-size: 18px;
+	font-family: 'Do Hyeon', sans-serif;
+	color: rgba(133, 128, 128, 0.7);
+	font-weight: 150;
+}
+
+#p3{
+	font-family: "Do Hyeon", serif;
+	font-size: 23px;
+	margin-top: 15px;
+	color: rgb(0, 0, 0);
+}
+
+#p4{
+	font-family: "Do Hyeon", serif;
+	font-size: 25px;
+	margin-top: 40px;
+	color: rgb(0, 0, 0);
+}
+
+
 
 /***********************************************************/
 /********** Sermons End
