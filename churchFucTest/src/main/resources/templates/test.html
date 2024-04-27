@@ -1,12 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
 
-    
+<body>
+<h1>게시판 웹 서비스</h1>
+<div class="col-md-12">
+    <!-- 목록 출력 영력 -->
+    <table class="table table-horizontal table-bordered">
+        <tr>
+            <th>게시글 번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>최종수정일</th>
+        </tr>
+        <tr th:each="post: ${postsPages}">
+            <td th:text="${post.id}"></td>
+            <td><a th:href="@{|/posts/update/${post.id}|(page=${postsPages.number + 1})}" th:text="${post.title}"></a></td>
+            <td th:text="${post.author}"></td>
+        </tr>
+    </table>
+
+    <!-- 첫번째 페이지로 이동 -->
+    <a th:href="@{/test(page=1)}">첫 페이지 </a>
+
+    <!-- 이전 링크 활성화 비활성화 -->
+    <a th:href="${postsPages.first} ? '#' : @{/test(page=${postsPages.number})}"> 이전 </a>
+
+    <!-- 페이지 번호 링크(현재 페이지는 숫자만)
+            for(int page=startPage; page<=endPage; page++)-->
+    <span th:each="page: ${#numbers.sequence(startPage, endPage)}">
+
+		<!-- 현재페이지는 링크 없이 숫자만 -->
+            <span th:if="${page == postsPages.number + 1}" th:text="${page}"></span>
+        <!-- 현재페이지 링크 X, 다른 페이지번호에는 링크를 보여준다 -->
+            <span th:unless="${page == postsPages.number + 1}">
+        <a th:href="@{/test(page=${page})}" th:text="${page}"></a>
+            </span>
+        </span>
+
+    <!-- 다음 링크 활성화 비활성화 -->
+    <a th:href="${postsPages.last} ? '#' : @{/test(page=${postsPages.number + 2})}"> 다음 </a>
+
+    <!-- 마지막 페이지로 이동 -->
+    <a th:href="@{/test(page=${postsPages.totalPages})}"> 마지막 페이지</a>
+
+</div>
+</div>
 
 </body>
 </html>

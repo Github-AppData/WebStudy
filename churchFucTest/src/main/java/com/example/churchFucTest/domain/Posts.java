@@ -8,7 +8,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 
 @Data
 @Entity
-@Table(name="Posts")
+@Table(name = "Posts")
 @AllArgsConstructor
 @Builder
 public class Posts {

@@ -1,7 +1,9 @@
 package com.example.churchFucTest.dto;
 
 import com.example.churchFucTest.domain.Posts;
+import lombok.Getter;
 
+@Getter
 public class PostsDTO {
 
     private Long id;
@@ -15,4 +17,6 @@ public class PostsDTO {
         this.content = entity.getContent();
         this.author = entity.getAuthor();
     }
+
+
 }
