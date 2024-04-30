@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/test2CSS.css">
+
+
+</head>
+<body>
+
+    <div class="button-list">
+        <button>Button</button>
+        <button class="reverse dark">Reverse</button>
+        <button class="fast white">Fast</button>
+    </div>
+
+    <!-- dribbble -->
+    <a class="dribbble" href="https://dribbble.com/shots/7441241-Button-Hover-Effects" target="_blank"><img src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg" alt=""></a>
+
+    <script>
+        document.querySelectorAll('button').forEach(button => button.innerHTML = '<div><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></div>');
+    </script>
+</body>
+</html>

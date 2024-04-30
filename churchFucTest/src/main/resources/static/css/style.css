@@ -2428,9 +2428,7 @@ ul.contact li a:hover
 	z-index: 1;
 }
 
-.sermons_body{
-	background-color: #ffffff;
-}
+
 
 #chSermons_description{
 	width: 100%;
@@ -2589,7 +2587,7 @@ ul.contact li a:hover
 
 	/*background-image: url("../img/photo.png");*/
 	background-color: black;
-	
+
 }
 
 #servePeople_img2{
@@ -2637,7 +2635,7 @@ ul.contact li a:hover
 /*********************************************************************************/
 /* Last                                                                        */
 /*********************************************************************************/
-	
+
 	#last
 	{
 		width: 100%;
@@ -2681,14 +2679,14 @@ ul.contact li a:hover
 /*********************************************************************************/
 /* Copyright                                                                     */
 /*********************************************************************************/
-	
+
 	#copyright
 	{
 		position: relative;
 		text-align: center;
 		color: #774535;
 	}
-	
+
 	#copyright .container
 	{
 		padding: 3em 0em;
@@ -2696,7 +2694,7 @@ ul.contact li a:hover
 		border-color: rgba(255,255,255,.05);
 		color:  rgba(255,255,255,.1);
 	}
-	
+
 	#copyright a
 	{
 		text-decoration: none;
@@ -2712,9 +2710,142 @@ ul.contact li a:hover
 /*********************************************************************************/
 
 
+/*********************************************************************************/
+/* board                                                                      */
+/*********************************************************************************/
+
+.sermons_body{
+	background-color: #ffffff;
+}
+
+.sermons_bodyNotice{
+	background-color: #ffffff;
+	padding:1.5em;
+}
 
 
+#chSermonsMain_header{
+	display: block;
+	width: 100%;
+	padding-left: 1%;
+	position: relative;
+	background-size: cover;
+	text-align: center;
+	height: 170px;
+}
 
+#chSerMain_header_h2{
+	z-index: 100;
+	position: relative;
+	width: 100%;
+	height: 155px;
+	background-color: #ffffff;
+}
+
+#chSerMain_header_h2 h2{
+	padding-top: 130px;
+	color: black;
+	font-weight: 700;
+	text-align: left;
+	text-shadow: 1px 1px 1px #ffffff;
+	font-family: 'Noto Sans KR', sans-serif;
+
+	font-size: 35px;
+}
+
+#chSer_main{
+	width: 100%;
+	height: 1400px;
+	background-color: #ffffff;
+}
+
+#chSer_main table {
+	border: 1px #153587 solid;
+	font-size: .9em;
+	box-shadow: 0 2px 5px rgba(0,0,0,.25);
+	width: 90%;
+	border-collapse: collapse;
+	border-radius: 5px;
+	overflow: hidden;
+	margin-top: 50px;
+
+}
+
+#chSer_main th {
+	text-align: left;
+	font-size: 14px;
+}
+
+#chSer_main thead {
+	font-weight: bold;
+	color: #fff;
+	background: #153587;
+}
+
+#chSer_main td, #chSer_main th {
+	padding: 1em .5em;
+	vertical-align: middle;
+}
+
+#chSer_main td {
+	font-weight: 400;
+	font-size: 14px;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	background: rgba(21, 53, 135, 0.02);
+}
+
+#chSer_main a {
+	color: #000000;
+
+}
+
+@media all and (max-width: 768px) {
+
+	#chSer_main table, #chSer_main thead, #chSer_main tbody,
+	#chSer_main th, #chSer_main td, #chSer_main tr {
+		display: block;
+	}
+
+	#chSer_main th {
+		text-align: right;
+	}
+
+	#chSer_main table {
+		position: relative;
+		padding-bottom: 0;
+		border: none;
+		box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+	}
+
+	#chSer_main thead {
+		float: left;
+		white-space: nowrap;
+	}
+
+	#chSer_main tbody {
+		overflow-x: auto;
+		overflow-y: hidden;
+		position: relative;
+		white-space: nowrap;
+	}
+
+	#chSer_main tr {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	#chSer_main th {
+		border-bottom: 1px solid #a39485;
+	}
+
+	#chSer_main td {
+		border-bottom: 1px solid #e5e5e5;
+	}
+}
+
+/*********************************************************************************/
+/* board                                                                      */
+/*********************************************************************************/
 
 
 
