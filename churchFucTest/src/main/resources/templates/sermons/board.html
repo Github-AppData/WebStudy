@@ -15,9 +15,9 @@
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 		<link href="//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900" rel="stylesheet" type="text/css">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-panels.min.js"></script>
+		<script src="/js/init.js"></script>
 
 <!-- 구글 폰트 -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +26,13 @@
 		<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
-			<link rel="stylesheet" href="css/noticeBoard.css">
-
-			<link rel="stylesheet" href="css/skel-noscript.css">
-			<link rel="stylesheet" href="css/style.css">
-			<link rel="stylesheet" href="css/style-desktop.css">
+		<!--	TODO : css는 무조건 절대경로이다.
+				TODO : controller url 설계와 controller에서 데이터 끄집어 내는 거 다시 공부하기.
+				TODO : 절대경로를 이용하는 것이 유지보수 하기가 쉽다. ( ex) html 파일이 어디에 있든지, css 파일을 참조가 가능하다.)-->
+		<link rel="stylesheet" href="/css/noticeBoard.css">
+		<link rel="stylesheet" href="/css/skel-noscript.css">
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/style-desktop.css">
 
 		<style>
 
@@ -42,23 +44,6 @@
 			}
 		</style>
 
-		<style>
-			.btn-link {
-				display: block;
-				width: 50%;
-				height: 20%;
-				text-decoration: none; /* 링크에 기본적인 밑줄 제거 */
-				color: inherit; /* 링크의 기본 색상 유지 */
-			}
-
-			.btn-link2 {
-				display: block;
-				width: 50%;
-				height: 20%;
-				text-decoration: none; /* 링크에 기본적인 밑줄 제거 */
-				color: inherit; /* 링크의 기본 색상 유지 */
-			}
-		</style>
 	</head>
 	<body class="sermons_bodyNotice">
 		<!-- Header -->
@@ -66,7 +51,8 @@
 				<nav class="navbar navbar-expand-lg bg-white" style="margin-top: 7px">
 					<div class="container-fluid">
 						<a href="main">
-							<img id="img2" src="img/ch_logo.png" alt="" >
+<!--							<img id="img2" src="img/ch_logo.png" alt="" >-->
+							<img id="img2" src="../img/ch_logo.png" alt="" >
 						</a>
 						<button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
@@ -89,7 +75,7 @@
 
 								<!-- 설교 -->
 								<li class="nav-item dropdown">
-									<a id="dropdown-link2" class="nav-link dropdown-toggle" href="sermons" role="button" data-bs-toggle="dropdown" aria-expanded="false" >설교</a>
+									<a id="dropdown-link2" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" >설교</a>
 									<ul id="myDropdown2" class="dropdown-menu dropdown-menu-white">
 										<li><a class="dropdown-item" href="#">주일 대 예배</a></li>
 										<li><a class="dropdown-item" href="#">수요예배</a></li>
@@ -162,8 +148,8 @@
 					<tbody>
 						<tr th:each="post: ${postsPages}">
 							<td th:text="${post.id}"></td>
-							<td><a th:href="@{|/posts/update/${post.id}|(page=${postsPages.number + 1})}" th:text="${post.title}"></a></td>
 							<td th:text="${post.user_id}"></td>
+							<td><a th:href='@{/sermons/board/{postId}(postId=${post.id})}' th:text="${post.title}"></a></td>
 							<td th:text="${post.write_date}"></td>
 							<td th:text="${post.views}"></td>
 							<td th:text="${post.like_num}"></td>
@@ -173,69 +159,36 @@
 
 
 				<!-- 첫번째 페이지로 이동 -->
-<!--				<a th:href="@{/ch_sermons(page=1)}">첫 페이지 </a>-->
+<!--				<a th:href="@{/sermons(page=1)}">첫 페이지 </a>-->
 
 				<!-- 이전 링크 활성화 비활성화 -->
 				<div class="button-list">
-					<button class="reverse purple" onclick="navigateToMovePage()">
-						<a class="btn-link" th:href="${postsPages.first} ? '#' : @{ch_sermons(page=${postsPages.number})}">Previous</a>
+					<button th:onclick="|location.href='@{sermons(page=${postsPages.number})}'|">
+						Previous
 					</button>
 
-					<!-- 페이지 번호 링크(현재 페이지는 숫자만)
-							for(int page=startPage; page<=endPage; page++)-->
-					<span th:each="page: ${#numbers.sequence(startPage, endPage)}">
+					<span th:each="page : ${#numbers.sequence(startPage, endPage)}">
+						<!-- 현재 페이지에 대해서는 버튼을 비활성화 -->
+						<button th:if="${page == postsPages.number + 1}" th:text="${page}"
+								class="current-page"
+						></button>
 
-
-						<button class="reverse purple" onclick="navigateToMovePage()">
-							<!-- 현재페이지는 링크 없이 숫자만 -->
-							<span th:if="${page == postsPages.number + 1}" th:text="${page}"></span>
-						</button>
-
-						<!-- 현재페이지 링크 X, 다른 페이지번호에는 링크를 보여준다 -->
-						<span th:unless="${page == postsPages.number + 1}">
-							<button class="reverse purple" onclick="navigateToMovePage()">
-								<a th:href="@{ch_sermons(page=${page})}" th:text="${page}"></a>
-							</button>
-						</span>
-
+						<!-- 다른 페이지에 대해서는 페이지 이동 기능을 가진 버튼을 활성화 -->
+						<button th:unless="${page == postsPages.number + 1}"
+								th:text="${page}"
+								th:onclick="|location.href='@{sermons(page=${page})}'|"
+								class="other-page"
+						></button>
 					</span>
 
-					<button class="reverse white" onclick="navigateToMove2Page()">
-						<a class="btn-link2" th:href="${postsPages.last} ? '#' : @{ch_sermons(page=${postsPages.number + 2})}">Next</a>
+
+
+					<button
+							th:onclick="|location.href=' @{sermons(page=${postsPages.number + 2})}'|">
+						Next
 					</button>
 				</div>
 			</div>
-
-
-
-
-<!--		<script>-->
-<!--			document.querySelectorAll('button').forEach(button => button.innerHTML = '<div><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></div>');-->
-<!--		</script>-->
-
-		<script>
-			function navigateToMovePage() {
-				const link = document.querySelector('.btn-link');
-				const href = link.getAttribute('href');
-				if (href !== '#') {
-					window.location.href = href;
-				}
-			}
-
-			function navigateToMove2Page() {
-				const link = document.querySelector('.btn-link2');
-				const href = link.getAttribute('href');
-				if (href !== '#') {
-					window.location.href = href;
-				}
-			}
-
-
-		</script>
-
-
-
-
 	</body>
 
 </html>

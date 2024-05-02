@@ -3,6 +3,7 @@ package com.example.churchFucTest.controller;
 import com.example.churchFucTest.dto.PostsDTO;
 import com.example.churchFucTest.service.PostsService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class TestController {
 
     private final PostsService postsService;
@@ -62,31 +64,13 @@ public class TestController {
     }
 
     // 설교
-    @GetMapping("/ch_sermons")
-    public String ch_sermons(@PageableDefault(page = 1) Pageable pageable, Model model) {
-        Page<PostsDTO> postsPages = postsService.paging(pageable);
 
-        /**
-         * blockLimit : page 개수 설정
-         * 현재 사용자가 선택한 페이지 앞 뒤로 blockLimit 갯수만큼의 페이지씩만 보여준다.
-         * ex : 현재 사용자가 설정한 blockLimit가 4페이지라면 2, 3, (4), 5, 6
-         */
-        int blockLimit = 5;
-        int startPage = (((int) Math.ceil(((double) pageable.getPageNumber() / blockLimit))) - 1) * blockLimit + 1;
-        int endPage = Math.min((startPage + blockLimit - 1), postsPages.getTotalPages());
 
-        model.addAttribute("postsPages", postsPages);
-        model.addAttribute("startPage", startPage);
-        model.addAttribute("endPage", endPage);
-        return "ch_sermons";
-    }
+
+
 
     // 설교2
-    @GetMapping("/ch_sermons2")
-    public String sermons2()
-    {
-        return "ch_sermons2";
-    }
+
 
     // 다음 세대
     @GetMapping("/ch_newGeneration")

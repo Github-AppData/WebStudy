@@ -19,7 +19,7 @@ import java.util.SplittableRandom;
 @Slf4j
 @RequestMapping("/basic/items")
 @RequiredArgsConstructor // final이 붙은 것을 생성자로 만들어주는 애노테이션이다.
-public class BasicItemController {
+public class    BasicItemController {
 
     private final ItemRepository itemRepository;
 

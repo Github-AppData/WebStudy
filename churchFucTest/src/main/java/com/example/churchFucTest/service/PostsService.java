@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class PostsService {
+public class PostsService{
 
     private final PostsRepository postsRepository;
 
@@ -29,7 +29,7 @@ public class PostsService {
          */
         Page<Posts> postsPages = postsRepository.findAll(PageRequest.of(page, pageLimit, Sort.by(Sort.Direction.ASC, "id")));
 
-        // 목록 : id, title, content, author
+        // 목록 : id, title, conten   t, author
         Page<PostsDTO> postsDTOS = postsPages.map(
                 postPage -> new PostsDTO(postPage));
 

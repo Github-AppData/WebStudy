@@ -13,7 +13,7 @@ button.fast {
     --duration: 0.32s;
 }
 button {
-    --background: #275efe;
+    --background: rgba(39, 94, 254, 0.95);
     --text: #fff;
     --font-size: 16px;
     --duration: 0.44s;
@@ -115,14 +115,16 @@ body .button-list {
 }
 body .button-list button {
     margin: 0 12px;
+    float: left;
 }
-body .dribbble {
-    position: fixed;
-    display: block;
-    right: 20px;
-    bottom: 20px;
+
+.current-page {
+    background-color: #4CAF50; /* Green */
+    color: white;
 }
-body .dribbble img {
-    display: block;
-    height: 28px;
+
+.other-page {
+    background-color: #e7e7e7; /* Light Grey */
+    color: black;
 }
+
