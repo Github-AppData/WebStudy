@@ -1,8 +1,9 @@
 package com.example.churchFucTest.service;
 
-import com.example.churchFucTest.domain.Posts;
-import com.example.churchFucTest.dto.PostsDTO;
-import com.example.churchFucTest.repository.PostsRepository;
+import com.example.churchFucTest.domain.SundaySermons;
+import com.example.churchFucTest.dto.S_SermonsDTO;
+import com.example.churchFucTest.repository.S_SermonsRepository;
+import com.example.churchFucTest.repository.W_SermonsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,9 +15,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class PostsService{
 
-    private final PostsRepository postsRepository;
+    //  TODO : 설교 게시판 완성하기 (졸려서 지금 못함)
+    //      주일설교, 수요예배 설교, 기타설교 - 버튼 형식으로 게시판이 바뀌는 거 구현하기
 
-    public Page<PostsDTO> paging(Pageable pageable) {
+    private final S_SermonsRepository sSermonsRepository;
+    private final W_SermonsRepository wSermonsRepository;
+
+    public Page<S_SermonsDTO> paging(Pageable pageable) {
         int page = pageable.getPageNumber() - 1; // page 위치에 있는 값은 0부터 시작한다.
         int pageLimit = 5; // 한페이지에 보여줄 글 개수
 
@@ -27,11 +32,11 @@ public class PostsService{
          * @Parameter Description
          * 1. pageNumber :
          */
-        Page<Posts> postsPages = postsRepository.findAll(PageRequest.of(page, pageLimit, Sort.by(Sort.Direction.ASC, "id")));
+        Page<SundaySermons> postsPages = sSermonsRepository.findAll(PageRequest.of(page, pageLimit, Sort.by(Sort.Direction.ASC, "id")));
 
         // 목록 : id, title, conten   t, author
-        Page<PostsDTO> postsDTOS = postsPages.map(
-                postPage -> new PostsDTO(postPage));
+        Page<S_SermonsDTO> postsDTOS = postsPages.map(
+                postPage -> new S_SermonsDTO(postPage));
 
         return postsDTOS;
     }

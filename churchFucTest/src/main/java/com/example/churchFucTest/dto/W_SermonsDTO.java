@@ -1,13 +1,13 @@
 package com.example.churchFucTest.dto;
 
-import com.example.churchFucTest.domain.Posts;
-import lombok.Builder;
+import com.example.churchFucTest.domain.SundaySermons;
+import com.example.churchFucTest.domain.WednesdaySermons;
 import lombok.Getter;
 
 import java.sql.Date;
 
 @Getter
-public class PostsDTO {
+public class W_SermonsDTO {
 
     private Long id;
     private String title;
@@ -18,7 +18,7 @@ public class PostsDTO {
     private Integer views;
     private boolean is_delete; // 삭제여부
 
-    public PostsDTO(Posts entity) {
+    public W_SermonsDTO(WednesdaySermons entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.content = entity.getContent();

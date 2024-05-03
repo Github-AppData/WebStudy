@@ -10,10 +10,10 @@ import java.sql.Date;
 
 @Data
 @Entity
-@Table(name = "Posts")
+@Table(name = "SundaySermons")
 @AllArgsConstructor
 @Builder
-public class Posts {
+public class SundaySermons {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,11 +39,14 @@ public class Posts {
     @Column
     private Integer views;
 
+    @Column(length = 1000, nullable = false)
+    private String youtube_id; // youtubeID
+
 
     @Column(nullable = false, columnDefinition = "boolean default 0")
     private boolean is_delete; // 삭제여부
 
-    public Posts(String title, String content, String user_id, Date write_date, boolean is_delete, Integer like_num, Integer views) {
+    public SundaySermons(String title, String content, String user_id, Date write_date, boolean is_delete, Integer like_num, Integer views) {
         this.title = title;
         this.content = content;
         this.user_id = user_id;
@@ -53,6 +56,6 @@ public class Posts {
         this.views = views;
     }
 
-    public Posts() {
+    public SundaySermons() {
     }
 }

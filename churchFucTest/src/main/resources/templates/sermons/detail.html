@@ -134,15 +134,15 @@
 					<iframe class="youtube_iframe" id="idYoutubeIframe" frameborder="0"
 							allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							referrerpolicy="strict-origin-when-cross-origin" title="[사랑의교회] 용광로 속에서도 함께하시는 예수님 - 오정현 목사"
-							src="https://www.youtube.com/embed/swfCwA1xmis?start=0&amp;controls=1&amp;autoplay=0&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.sarang.org&amp;widgetid=1" data-gtm-yt-inspected-7="true">
+							th:src="@{'https://www.youtube.com/embed/' + ${SundaySermons.youtube_id} + '?start=0&amp;controls=1&amp;autoplay=0&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.sarang.org&amp;widgetid=1'}">
 					</iframe>
 				</div>
-				<div id="chSermons_description">
-					<p id="p1">용광로 속에서도 함께하시는 예수님</p>
-					<p id="p2">Jesus Christ with Us Even in the Midst of Smelting Furnace</p>
-					<p id="p3">본문 : 다니엘 2:34~35, 베드로전서 2:4~8</p>
-					<p id="p4">심태연 목사 · 주후 2024.04.14</p>
 
+				<div id="chSermons_description" th:each="post: ${SundaySermons}">
+					<p id="p1" th:text="${post.title}"></p>
+					<p id="p2" th:text="${post.write_date}"></p>
+					<p id="p3" th:text="${post.content}"></p>
+					<p id="p4" th:text="${post.user_id}"></p>
 				</div>
 
 

@@ -1,14 +1,9 @@
 package com.example.churchFucTest.controller;
 
-import com.example.churchFucTest.dto.PostsDTO;
 import com.example.churchFucTest.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -22,8 +17,9 @@ public class TestController {
     @GetMapping("/main")
     public String main()
     {
-        return "main";
+        return "/main";
     }
+
 
 
     /// 교회소개 ///
