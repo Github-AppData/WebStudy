@@ -134,11 +134,11 @@
 					<iframe class="youtube_iframe" id="idYoutubeIframe" frameborder="0"
 							allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							referrerpolicy="strict-origin-when-cross-origin" title="[사랑의교회] 용광로 속에서도 함께하시는 예수님 - 오정현 목사"
-							th:src="@{'https://www.youtube.com/embed/' + ${SundaySermons.youtube_id} + '?start=0&amp;controls=1&amp;autoplay=0&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.sarang.org&amp;widgetid=1'}">
+							th:src="@{'https://www.youtube.com/embed/' + ${sermon.youtube_id} + '?start=0&amp;controls=1&amp;autoplay=0&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.sarang.org&amp;widgetid=1'}">
 					</iframe>
 				</div>
 
-				<div id="chSermons_description" th:each="post: ${SundaySermons}">
+				<div id="chSermons_description" th:each="post: ${sermon}">
 					<p id="p1" th:text="${post.title}"></p>
 					<p id="p2" th:text="${post.write_date}"></p>
 					<p id="p3" th:text="${post.content}"></p>

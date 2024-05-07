@@ -2,8 +2,10 @@ package com.example.churchFucTest;
 
 import com.example.churchFucTest.domain.SundaySermons;
 import com.example.churchFucTest.domain.WednesdaySermons;
+import com.example.churchFucTest.domain.YouthSermons;
 import com.example.churchFucTest.repository.S_SermonsRepository;
 import com.example.churchFucTest.repository.W_SermonsRepository;
+import com.example.churchFucTest.repository.Y_SermonsRepository;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +29,14 @@ public class PostsTest {
     @Autowired
     W_SermonsRepository wSermonsRepository;
 
+    @Autowired
+    Y_SermonsRepository ySermonsRepository;
+
     @Test
     void test(){
-//        SundayInsert();
+        SundayInsert();
         WednesdayInsert();
+        YouthInsert();
 //        selectTest();
 //        updateTest(1L, "youtube_id", "oHmVSLI7AiU");
 
@@ -85,6 +91,33 @@ public class PostsTest {
             //Create!
             wSermonsRepository.save(wednesdaySermons);
             log.info("wednesdaySermons={}",wednesdaySermons);
+
+        });
+    }
+
+    @Transactional
+    public void YouthInsert(){
+        // 테스트할 SQL Date 생성
+        Date testDate = Date.valueOf("2024-04-30");
+        LocalDate localDate = LocalDate.now();
+
+        Date date2 = Date.valueOf(localDate);
+
+        IntStream.rangeClosed(1, 100).forEach(i -> {
+            YouthSermons youthSermons = YouthSermons.builder()
+                    .title("YouthTitle..." + i)
+                    .user_id("Youth_userid" + i)
+                    .content("Youth_content" + i)
+                    .like_num(i)
+                    .write_date(date2)
+                    .views(i)
+                    .youtube_id("m2tBn4XBad0")
+                    .build();
+
+
+            //Create!
+            ySermonsRepository.save(youthSermons);
+            log.info("youthSermons={}",youthSermons);
 
         });
     }

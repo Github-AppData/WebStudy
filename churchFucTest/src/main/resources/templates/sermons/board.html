@@ -126,8 +126,22 @@
 
 			<div id="chSermonsMain_header">
 				<div id="chSerMain_header_h2">
-					<h2>주일예배 게시판</h2>
+					<h2 th:text="${day} + ' 게시판'">주일예배 게시판</h2>
 				</div>
+				<div id="type_radios" class="btn-group" role="group" aria-label="Basic radio toggle button group" >
+					<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btnradio1"
+						   th:onclick="|location.href='@{/sermons/board/sunday}'|">주일 예배</label>
+
+					<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" >
+					<label class="btn btn-outline-primary" for="btnradio2"
+						   th:onclick="|location.href='@{/sermons/board/wednesday}'|">수요 예배</label>
+
+					<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" >
+					<label class="btn btn-outline-primary" for="btnradio3"
+						   th:onclick="|location.href='@{/sermons/board/youth}'|">청년회 예배</label>
+				</div>
+
 			</div>
 
 			<div id="chSer_main">
@@ -148,7 +162,7 @@
 						<tr th:each="post: ${postsPages}">
 							<td th:text="${post.id}"></td>
 							<td th:text="${post.user_id}"></td>
-							<td><a th:href='@{/sermons/board/{postId}(postId=${post.id})}' th:text="${post.title}"></a></td>
+							<td><a th:href='@{/sermons/board/{type}/{postId}(postId=${post.id}, type=${type})}' th:text="${post.title}"></a></td>
 							<td th:text="${post.write_date}"></td>
 							<td th:text="${post.views}"></td>
 							<td th:text="${post.like_num}"></td>
@@ -162,20 +176,21 @@
 
 				<!-- 이전 링크 활성화 비활성화 -->
 				<div class="button-list">
-					<button th:onclick="|location.href='@{/sermons/board(page=${postsPages.number})}'|">
+					<button th:onclick="|location.href='@{/sermons/board/{type}(page=${postsPages.number}, type=${type})}'|">
 						Previous
 					</button>
 
-					<span th:each="page : ${#numbers.sequence(startPage, endPage)}">
+					<span th:each="page : ${#numbers.sequence(startPage, endPage)}" >
 						<!-- 현재 페이지에 대해서는 버튼을 비활성화 -->
 						<button th:if="${page == postsPages.number + 1}" th:text="${page}"
 								class="current-page"
 						></button>
 
+
 						<!-- 다른 페이지에 대해서는 페이지 이동 기능을 가진 버튼을 활성화 -->
 						<button th:unless="${page == postsPages.number + 1}"
 								th:text="${page}"
-								th:onclick="|location.href='@{/sermons/board(page=${page})}'|"
+								th:onclick="|location.href='@{/sermons/board/{type}(page=${page}, type=${type})}'|"
 								class="other-page"
 						></button>
 					</span>
@@ -183,11 +198,27 @@
 
 
 					<button
-							th:onclick="|location.href=' @{/sermons/board(page=${postsPages.number + 2})}'|">
+							th:onclick="|location.href='@{/sermons/board/{type}(page=${postsPages.number + 2}, type=${type})}'|"
+					>
 						Next
 					</button>
 				</div>
 			</div>
+
+		<script>
+			document.querySelectorAll('.btn-check').forEach(function(radio) {
+				radio.addEventListener('click', function() {
+					// 이전에 선택된 라디오 버튼에서 checked 속성 제거
+					document.querySelectorAll('.btn-check').forEach(function(radio) {
+						radio.removeAttribute('checked');
+					});
+
+					// 선택된 라디오 버튼에 checked 속성 추가
+					this.setAttribute('checked', 'checked');
+				});
+			});
+		</script>
 	</body>
+
 
 </html>
