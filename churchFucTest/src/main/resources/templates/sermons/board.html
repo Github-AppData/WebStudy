@@ -148,12 +148,12 @@
 				<table style="margin-left: 5%; margin-right: 5%" class="table board-table" >
 					<thead>
 					<tr>
-						<th style="color: white; background: #153587" scope="col" class="col-lg-1">id</th>
-						<th style="color: white; background: #153587" scope="col" class="col-lg-2">글쓴이</th>
+						<th style="color: white; background: #153587" scope="col" class="col-lg-1">번호</th>
 						<th style="color: white; background: #153587" scope="col" class="col-lg-4 text-center">제목</th>
-						<th style="color: white; background: #153587" scope="col" class="col-lg-2">작성시간</th>
+						<th style="color: white; background: #153587" scope="col" class="col-lg-2">본문</th>
+						<th style="color: white; background: #153587" scope="col" class="col-lg-2">설교자</th>
+						<th style="color: white; background: #153587" scope="col" class="col-lg-2">날짜</th>
 						<th style="color: white; background: #153587" scope="col" class="col-lg-1">조회수</th>
-						<th style="color: white; background: #153587" scope="col" class="col-lg-1">좋아요</th>
 
 					</tr>
 					</thead>
@@ -161,11 +161,11 @@
 					<tbody>
 						<tr th:each="post: ${postsPages}">
 							<td th:text="${post.id}"></td>
-							<td th:text="${post.user_id}"></td>
 							<td><a th:href='@{/sermons/board/{type}/{postId}(postId=${post.id}, type=${type})}' th:text="${post.title}"></a></td>
+							<td th:text="${post.mainText}"></td>
+							<td th:text="${post.user_id}"></td>
 							<td th:text="${post.write_date}"></td>
 							<td th:text="${post.views}"></td>
-							<td th:text="${post.like_num}"></td>
 						</tr>
 					</tbody>
 				</table>

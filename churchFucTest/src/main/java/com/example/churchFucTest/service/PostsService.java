@@ -86,7 +86,7 @@ public class PostsService{
             wSermonsRepository.flush();
         } else if (type.equalsIgnoreCase("Youth")){
             ySermonsRepository.incrementViews(postId);
-            ySermonsRepository.flush();
+            ySermonsRepository.flush(); // 저장
         } else {
             log.info("Error!!!");
         }

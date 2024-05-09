@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -39,7 +40,7 @@ public class SermonsController {
 
 
     @GetMapping("/sunday")
-    public String sermons(@PageableDefault(page = 1) Pageable pageable, Model model) {
+    public String sermons(@PageableDefault(page = 1) Pageable pageable, Model model, RedirectAttributes redirectAttributes) {
         Page<?> postsPages = postsService.paging(pageable, "Sunday");
 
         /**
@@ -116,6 +117,25 @@ public class SermonsController {
         return "sermons/board";
     }
 
+    // 삭제
+    @PostMapping("/{type}/{postId}/delete")
+    public String deletePost(){
+        // TODO : 관리자가 맞는지 로그인 세션인증 구현해야 한다.
+
+
+        return "sermons/detail";
+    }
+
+    // 수정
+    @PostMapping("/{type}/{postId}")
+    public String revisePost(){
+        // TODO : 관리자가 맞는 지 로그인 세션인증 구현해야 한다.
+
+        return "sermons/detail";
+    }
+
+
+
     @GetMapping("/{type}/{postId}")
     public String getPost(@PathVariable("postId") Long postId, @PathVariable("type") String type, Model model) {
         // postId에 해당하는 게시물을 가져오거나 작업을 수행한다.
@@ -124,11 +144,12 @@ public class SermonsController {
 
         // 타입에 따라 다른 Repository를 선택하여 데이터를 가져온다.
 
-        // TODO : 조회수 기능은 만들었다. (다시한번 검토해보고 공부하기 - service, jpaRepository, sql, @Transactional,,)
-        //  좋아요 기능의 구현구조가 조회수 기능과 다를 바가 없다. 그래서, 참고해서 만들면 된다.
-        //  위에 꺼 다 만들면, delete 기능도 만들어라. (사실 뭐 없데이트하고 똑같이 하면되서 별반 어렵지 않다.)
-        
+        // TODO : 1. 조회수 기능은 만들었다. (다시한번 검토해보고 공부하기 - service, jpaRepository, sql, @Transactional,,)
+        //  2. 좋아요 기능의 구현구조가 조회수 기능과 다를 바가 없다. 그래서, 참고해서 만들면 된다.
+        //  3. 위에 꺼 다 만들면, delete 기능도 만들어라. (사실 뭐 업데이트하고 똑같이 하면되서 별반 어렵지 않다.)
 
+
+//        sSermonsRepository.deleteById(postId);
         Object post;
         if ("sunday".equalsIgnoreCase(type)) {
             Optional<SundaySermons> optionalPost = sSermonsRepository.findById(postId);

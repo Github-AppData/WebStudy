@@ -25,16 +25,13 @@ public class YouthSermons {
 
     @NotNull
     @Column(length = 1000)
-    private String content; // 내용
+    private String mainText; // 내용
 
     @Column(length = 1000, nullable = false)
     private String user_id; // 글쓴이
 
     @Temporal(TemporalType.DATE)
     private Date write_date; // 작성날짜
-
-    @Column
-    private Integer like_num;
 
     @Column
     private Integer views;
@@ -46,13 +43,12 @@ public class YouthSermons {
     @Column(nullable = false, columnDefinition = "boolean default 0")
     private boolean is_delete; // 삭제여부
 
-    public YouthSermons(String title, String content, String user_id, Date write_date, boolean is_delete, Integer like_num, Integer views) {
+    public YouthSermons(String title, String mainText, String user_id, Date write_date, boolean is_delete, Integer like_num, Integer views) {
         this.title = title;
-        this.content = content;
+        this.mainText = mainText;
         this.user_id = user_id;
         this.write_date = write_date;
         this.is_delete = is_delete;
-        this.like_num = like_num;
         this.views = views;
     }
 

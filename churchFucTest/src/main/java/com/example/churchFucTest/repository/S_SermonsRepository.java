@@ -18,5 +18,10 @@ public interface S_SermonsRepository extends JpaRepository<SundaySermons, Long> 
     @Query(value = "update sunday_sermons set views = views + 1 where id = :postId", nativeQuery = true)
     void incrementViews(@Param("postId") Long postId);
 
+//    @Transactional
+//    @Modifying
+//    @Query(value = "update sunday_sermons set views = views + 1 where id = :postId", nativeQuery = true)
+//    void (@Param("postId") Long postId);
+
 
 }

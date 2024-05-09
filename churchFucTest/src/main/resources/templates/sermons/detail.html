@@ -59,6 +59,7 @@
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 							<ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 20px">
+								<!-- TODO : 관리자가 아니면 수정, 삭제 버튼이 나오지 않게 해야된다. (로그인 인증) -->
 
 								<!-- 교회소개 -->
 								<li class="nav-item dropdown">
@@ -126,6 +127,13 @@
 				<div id="chSer_header_h2">
 						<h2>주일예배</h2>
 				</div>
+				<div id="chSer_header_buttons">
+					<div class="button-list">
+						<button>
+							btn1
+						</button>
+					</div>
+				</div>
 			</div>
 
 			<div id="chSermons_body">
@@ -141,7 +149,7 @@
 				<div id="chSermons_description" th:each="post: ${sermon}">
 					<p id="p1" th:text="${post.title}"></p>
 					<p id="p2" th:text="${post.write_date}"></p>
-					<p id="p3" th:text="${post.content}"></p>
+					<p id="p3" th:text="${post.mainText}"></p>
 					<p id="p4" th:text="${post.user_id}"></p>
 				</div>
 

@@ -2404,8 +2404,9 @@ ul.contact li a:hover
 #chSer_header_h2{
 	z-index: 100;
 	position: relative;
-	width: 100%;
+	width: 50%;
 	height: 155px;
+	float: left;
 	background-color: #ffffff;
 }
 
@@ -2417,8 +2418,22 @@ ul.contact li a:hover
 	text-align: left;
 	text-shadow: 1px 1px 1px #ffffff;
 	font-family: 'Noto Sans KR', sans-serif;
-
 	font-size: 35px;
+}
+
+#chSer_header_buttons{
+	float: left;
+	background-color: black;
+	height: 155px;
+	position: relative;
+	width: 50%;
+	z-index: 100;
+}
+
+.button-list button{
+	padding-top: 190px;
+	width: 50px;
+	height: 10px;
 }
 
 #chSermons_body{

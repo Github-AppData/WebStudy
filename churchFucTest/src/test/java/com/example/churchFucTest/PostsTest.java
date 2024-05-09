@@ -55,8 +55,7 @@ public class PostsTest {
             SundaySermons sundaySermons = SundaySermons.builder()
                     .title("SundayTitle..." + i)
                     .user_id("Sunday_userId" + i)
-                    .content("Sunday_content" + i)
-                    .like_num(i)
+                    .mainText("Sunday_mainText" + i)
                     .write_date(date2)
                     .views(i)
                     .youtube_id("m2tBn4XBad0")
@@ -80,8 +79,7 @@ public class PostsTest {
             WednesdaySermons wednesdaySermons = WednesdaySermons.builder()
                     .title("WednesdayTitle..." + i)
                     .user_id("Wednesday_userId" + i)
-                    .content("Wednesday_content" + i)
-                    .like_num(i)
+                    .mainText("Wednesday_mainText" + i)
                     .write_date(date2)
                     .views(i)
                     .youtube_id("m2tBn4XBad0")
@@ -107,8 +105,7 @@ public class PostsTest {
             YouthSermons youthSermons = YouthSermons.builder()
                     .title("YouthTitle..." + i)
                     .user_id("Youth_userid" + i)
-                    .content("Youth_content" + i)
-                    .like_num(i)
+                    .mainText("Youth_mainText" + i)
                     .write_date(date2)
                     .views(i)
                     .youtube_id("m2tBn4XBad0")
@@ -163,7 +160,7 @@ public class PostsTest {
                     sSermonsRepository.save(posts);
                     break;
                 case "content":
-                    posts.setContent(newPropertyValue);
+                    posts.setMainText(newPropertyValue);
                     posts.setWrite_date(date3);
                     sSermonsRepository.save(posts);
                     break;
