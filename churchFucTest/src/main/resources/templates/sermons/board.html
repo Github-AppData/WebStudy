@@ -170,10 +170,6 @@
 					</tbody>
 				</table>
 
-
-				<!-- 첫번째 페이지로 이동 -->
-<!--				<a th:href="@{/sermons(page=1)}">첫 페이지 </a>-->
-
 				<!-- 이전 링크 활성화 비활성화 -->
 				<div class="button-list">
 					<button th:onclick="|location.href='@{/sermons/board/{type}(page=${postsPages.number}, type=${type})}'|">

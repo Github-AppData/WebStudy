@@ -1,5 +1,7 @@
 package com.example.churchFucTest.controller;
 
+import com.example.churchFucTest.config.LoginUser;
+import com.example.churchFucTest.domain.SessionUser;
 import com.example.churchFucTest.domain.SundaySermons;
 import com.example.churchFucTest.domain.WednesdaySermons;
 import com.example.churchFucTest.domain.YouthSermons;
@@ -177,6 +179,8 @@ public class SermonsController {
 
         return "sermons/detail"; // sermons/detail.html과 같은 Thymeleaf 템플릿 파일을 반환한다.
     }
+
+
 
 
 

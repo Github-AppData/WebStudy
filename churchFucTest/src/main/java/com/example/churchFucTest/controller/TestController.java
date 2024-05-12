@@ -1,10 +1,14 @@
 package com.example.churchFucTest.controller;
 
+import com.example.churchFucTest.config.LoginUser;
+import com.example.churchFucTest.domain.SessionUser;
 import com.example.churchFucTest.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -13,12 +17,31 @@ public class TestController {
 
     private final PostsService postsService;
 
+    @PostMapping("/login")
+    public String loginPost(Model model, @LoginUser SessionUser user){
+
+        // TODO : 로그인 관련 객체, Service, Repository, DTO 만들기
+        //         그런 다음에 세션 처리하기 (관리자와 일반유저 나뉘어서)
+
+        if(user != null){ // Session이 있으면,
+            model.addAttribute("userName", user.getUsername()); // 전달해 준다.
+        }
+        return "login";
+    }
+
+    @GetMapping("/login")
+    public String loginGet(Model model){
+
+        return "login";
+    }
+
     // 메인
     @GetMapping("/main")
     public String main()
     {
         return "/main";
     }
+
 
 
 

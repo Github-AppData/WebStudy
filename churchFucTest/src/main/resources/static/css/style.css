@@ -2423,18 +2423,27 @@ ul.contact li a:hover
 
 #chSer_header_buttons{
 	float: left;
-	background-color: black;
 	height: 155px;
 	position: relative;
 	width: 50%;
 	z-index: 100;
 }
 
-.button-list button{
-	padding-top: 190px;
-	width: 50px;
-	height: 10px;
+#detail_buttons_area{
+	margin-top: 100px;
+	margin-left: 200px;
+
 }
+
+#detail_buttons button{
+	position: relative;
+	float: left;
+	text-align: center;
+
+
+}
+
+
 
 #chSermons_body{
 	width: 100%;
