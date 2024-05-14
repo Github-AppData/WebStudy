@@ -1,25 +1,18 @@
 package com.example.churchFucTest.controller;
 
-import com.example.churchFucTest.config.LoginUser;
-import com.example.churchFucTest.domain.SessionUser;
 import com.example.churchFucTest.domain.SundaySermons;
 import com.example.churchFucTest.domain.WednesdaySermons;
 import com.example.churchFucTest.domain.YouthSermons;
-import com.example.churchFucTest.dto.S_SermonsDTO;
 import com.example.churchFucTest.repository.S_SermonsRepository;
 import com.example.churchFucTest.repository.W_SermonsRepository;
 import com.example.churchFucTest.repository.Y_SermonsRepository;
 import com.example.churchFucTest.service.PostsService;
-import jakarta.servlet.ServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -146,12 +139,7 @@ public class SermonsController {
 
         // 타입에 따라 다른 Repository를 선택하여 데이터를 가져온다.
 
-        // TODO : 1. 조회수 기능은 만들었다. (다시한번 검토해보고 공부하기 - service, jpaRepository, sql, @Transactional,,)
-        //  2. 좋아요 기능의 구현구조가 조회수 기능과 다를 바가 없다. 그래서, 참고해서 만들면 된다.
-        //  3. 위에 꺼 다 만들면, delete 기능도 만들어라. (사실 뭐 업데이트하고 똑같이 하면되서 별반 어렵지 않다.)
-
-
-//        sSermonsRepository.deleteById(postId);
+        // TODO : Service로 뺴야 함.
         Object post;
         if ("sunday".equalsIgnoreCase(type)) {
             Optional<SundaySermons> optionalPost = sSermonsRepository.findById(postId);

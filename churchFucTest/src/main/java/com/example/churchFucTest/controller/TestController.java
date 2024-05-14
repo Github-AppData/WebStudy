@@ -1,14 +1,19 @@
 package com.example.churchFucTest.controller;
 
 import com.example.churchFucTest.config.LoginUser;
-import com.example.churchFucTest.domain.SessionUser;
+import com.example.churchFucTest.dto.SessionUserDTO;
+import com.example.churchFucTest.service.LoginService;
 import com.example.churchFucTest.service.PostsService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequiredArgsConstructor
@@ -16,30 +21,47 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class TestController {
 
     private final PostsService postsService;
+    private final LoginService loginService;
 
     @PostMapping("/login")
-    public String loginPost(Model model, @LoginUser SessionUser user){
+    public String loginPost(Model model, @LoginUser SessionUserDTO sessionUserDTO,
+                            @RequestParam String userid, HttpSession session, HttpServletRequest request,
+                            RedirectAttributes rttr){
 
+        session = request.getSession();
         // TODO : 로그인 관련 객체, Service, Repository, DTO 만들기
         //         그런 다음에 세션 처리하기 (관리자와 일반유저 나뉘어서)
 
-        if(user != null){ // Session이 있으면,
-            model.addAttribute("userName", user.getUsername()); // 전달해 준다.
+        // TODO : 확인 절차 - 로그인한 대상이 DB에 저장되어 있는 id와 맞는지.
+
+        log.info("userid={}", userid);
+        boolean is_exists; // 로그인 쳌
+        sessionUserDTO = loginService.processLogin(userid);
+
+        // sessionUserDTO에 값이 없지 않으면,,, - 성공
+        if (sessionUserDTO != null) {
+            log.info("Success sessionUserDTO={}", sessionUserDTO);
+            session.setAttribute("user", sessionUserDTO);
+            model.addAttribute("userName", sessionUserDTO.getUsername()); // 전달해 준다. html로
+            return "redirect:/main";
+        } else { // 실패
+            log.info("False sessionUserDTO={}", sessionUserDTO);
+            return "redirect:/login"; // GET으로 다시 리다이렉트
         }
-        return "login";
     }
 
     @GetMapping("/login")
     public String loginGet(Model model){
-
         return "login";
     }
 
     // 메인
     @GetMapping("/main")
-    public String main()
-    {
-        return "/main";
+    public String main(@LoginUser SessionUserDTO user) {
+
+        log.info("user={}", user);
+
+        return "main";
     }
 
 
@@ -126,7 +148,7 @@ public class TestController {
     }
 
     // @PageableDefault(page = 1) : page는 기본으로 1페이지를 보여준다.
-    // @Login SessionUser user - 어노테이션으로 세션관리하기
+    // @Login SessionUserDTO user - 어노테이션으로 세션관리하기
 //    @GetMapping("/test")
 //    public String paging(@PageableDefault(page = 1) Pageable pageable, Model model) {
 //        Page<PostsDTO> postsPages = postsService.paging(pageable);

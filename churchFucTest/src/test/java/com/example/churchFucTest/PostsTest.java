@@ -1,9 +1,11 @@
 package com.example.churchFucTest;
 
 import com.example.churchFucTest.domain.SundaySermons;
+import com.example.churchFucTest.domain.User;
 import com.example.churchFucTest.domain.WednesdaySermons;
 import com.example.churchFucTest.domain.YouthSermons;
 import com.example.churchFucTest.repository.S_SermonsRepository;
+import com.example.churchFucTest.repository.UserRepository;
 import com.example.churchFucTest.repository.W_SermonsRepository;
 import com.example.churchFucTest.repository.Y_SermonsRepository;
 import org.junit.jupiter.api.Test;
@@ -32,15 +34,38 @@ public class PostsTest {
     @Autowired
     Y_SermonsRepository ySermonsRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     @Test
     void test(){
         SundayInsert();
         WednesdayInsert();
         YouthInsert();
+        UserInsert();
 //        selectTest();
 //        updateTest(1L, "youtube_id", "oHmVSLI7AiU");
 
 
+    }
+
+    @Transactional
+    public void UserInsert(){
+        // 테스트할 SQL Date 생성
+        Date testDate = Date.valueOf("2024-04-30");
+        LocalDate localDate = LocalDate.now();
+        Date date2 = Date.valueOf(localDate);
+
+        IntStream.rangeClosed(1, 100).forEach(i -> {
+            User user = User.builder()
+                    .userId("xodnr..." + i)
+                    .username("ta"+i)
+                    .roles("roles..."+i)
+                    .loginTime(date2)
+                    .build();
+            //Create!
+            userRepository.save(user);
+        });
     }
 
     @Transactional
