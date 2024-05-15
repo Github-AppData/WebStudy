@@ -62,6 +62,9 @@ public class PostsTest {
                     .username("ta"+i)
                     .roles("roles..."+i)
                     .loginTime(date2)
+                    .pw("asdfg")
+                    .email("emailTest"+i)
+                    .salt("saltTest" + i)
                     .build();
             //Create!
             userRepository.save(user);

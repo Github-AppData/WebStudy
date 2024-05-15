@@ -2,7 +2,7 @@ package com.example.churchFucTest.controller;
 
 import com.example.churchFucTest.config.LoginUser;
 import com.example.churchFucTest.dto.SessionUserDTO;
-import com.example.churchFucTest.service.LoginService;
+import com.example.churchFucTest.service.LoginAndAuthService;
 import com.example.churchFucTest.service.PostsService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class TestController {
 
     private final PostsService postsService;
-    private final LoginService loginService;
+    private final LoginAndAuthService loginAndAuthService;
 
     @PostMapping("/login")
     public String loginPost(Model model, @LoginUser SessionUserDTO sessionUserDTO,
@@ -36,7 +36,7 @@ public class TestController {
 
         log.info("userid={}", userid);
         boolean is_exists; // 로그인 쳌
-        sessionUserDTO = loginService.processLogin(userid);
+        sessionUserDTO = loginAndAuthService.processLogin(userid);
 
         // sessionUserDTO에 값이 없지 않으면,,, - 성공
         if (sessionUserDTO != null) {
@@ -61,8 +61,33 @@ public class TestController {
 
         log.info("user={}", user);
 
+
         return "main";
     }
+
+    @GetMapping("/signup")
+    public String signup(@LoginUser SessionUserDTO sessionUserDTO) {
+
+
+
+        return "signup";
+    }
+
+    @PostMapping("/signup")
+    public String postsignup(@LoginUser SessionUserDTO sessionUserDTO) {
+
+        // TODO : signUp Page에 있는 정보를 가지고 와서, 다 저장한 다음에
+        //  processLogin를 한다.
+
+        // sessionUserDTO = loginAndAuthService.processLogin();
+
+        
+
+
+        return "signup";
+    }
+
+
 
 
 

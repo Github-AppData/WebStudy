@@ -21,7 +21,6 @@ public class User {
     @Column(length = 1000, nullable = false)
     private String userId; // 사용자 식별자(ID)
 
-
     @Column(length = 1000, nullable = false)
     private String username; // 사용자 이름
 
@@ -34,13 +33,26 @@ public class User {
     @Column(columnDefinition = "boolean default 0")
     private boolean is_status; // 로그인 상태를 나타냄 (1 로그인, 0 로그아웃)
 
+    @Column(length = 1000, nullable = false)
+    private String salt;
 
-    public User(String userId, String username, String roles, Date loginTime, boolean is_status) {
+    @Column(length = 1000, nullable = false)
+    private String email;
+
+    @Column(length = 1000, nullable = false)
+    private String pw;
+
+
+    public User(String userId, String username, String roles, Date loginTime, boolean is_status, String salt, String email, String pw) {
+
         this.userId = userId;
         this.username = username;
         this.roles = roles;
         this.loginTime = loginTime;
         this.is_status = is_status;
+        this.salt = salt;
+        this.email = email;
+        this.pw = pw;
     }
 
     public User() {

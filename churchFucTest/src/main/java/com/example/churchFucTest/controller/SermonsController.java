@@ -1,11 +1,14 @@
 package com.example.churchFucTest.controller;
 
+import com.example.churchFucTest.config.LoginUser;
 import com.example.churchFucTest.domain.SundaySermons;
 import com.example.churchFucTest.domain.WednesdaySermons;
 import com.example.churchFucTest.domain.YouthSermons;
+import com.example.churchFucTest.dto.SessionUserDTO;
 import com.example.churchFucTest.repository.S_SermonsRepository;
 import com.example.churchFucTest.repository.W_SermonsRepository;
 import com.example.churchFucTest.repository.Y_SermonsRepository;
+import com.example.churchFucTest.service.LoginAndAuthService;
 import com.example.churchFucTest.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,9 +32,14 @@ import java.util.Optional;
 public class SermonsController {
 
     private final PostsService postsService;
+    private final LoginAndAuthService loginAndAuthService;
+
+    // TODO : Controller 층에서는 Service만 있어야 되는데
+    //      Repository 다 Service로 옮길예정 언젠가...
     private final S_SermonsRepository sSermonsRepository;
     private final W_SermonsRepository wSermonsRepository;
     private final Y_SermonsRepository ySermonsRepository;
+
 
 
     @GetMapping("/sunday")
@@ -114,17 +122,24 @@ public class SermonsController {
 
     // 삭제
     @PostMapping("/{type}/{postId}/delete")
-    public String deletePost(){
-        // TODO : 관리자가 맞는지 로그인 세션인증 구현해야 한다.
+    public String deletePost(@LoginUser SessionUserDTO sessionUserDTO){
+        // TODO : 본인과 관리자가 맞는지 로그인 세션인증 구현해야 한다.
+        String userId = sessionUserDTO.getUserId();
 
+        loginAndAuthService.checkUserOrNotAdmin(userId);
 
         return "sermons/detail";
     }
 
     // 수정
     @PostMapping("/{type}/{postId}")
-    public String revisePost(){
-        // TODO : 관리자가 맞는 지 로그인 세션인증 구현해야 한다.
+    public String revisePost(@LoginUser SessionUserDTO sessionUserDTO){
+        // TODO : 본인과 관리자가 맞는 지 로그인 세션인증 구현해야 한다.
+
+        log.info("user={}", sessionUserDTO);
+        String userId = sessionUserDTO.getUserId();
+
+
 
         return "sermons/detail";
     }
