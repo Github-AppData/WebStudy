@@ -42,7 +42,6 @@ public class PostsTest {
         SundayInsert();
         WednesdayInsert();
         YouthInsert();
-        UserInsert();
 //        selectTest();
 //        updateTest(1L, "youtube_id", "oHmVSLI7AiU");
 
@@ -62,7 +61,7 @@ public class PostsTest {
                     .username("ta"+i)
                     .roles("roles..."+i)
                     .loginTime(date2)
-                    .pw("asdfg")
+                    .password("asdfg")
                     .email("emailTest"+i)
                     .salt("saltTest" + i)
                     .build();

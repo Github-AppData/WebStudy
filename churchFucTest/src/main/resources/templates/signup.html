@@ -15,9 +15,9 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link href="//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900" rel="stylesheet" type="text/css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/skel.min.js"></script>
-    <script src="js/skel-panels.min.js"></script>
-    <script src="js/init.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/skel-panels.min.js"></script>
+    <script src="/js/init.js"></script>
 
     <!-- 구글 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +26,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
-    <noscript>
-        <link rel="stylesheet" href="css/skel-noscript.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/style-desktop.css">
-    </noscript>
+        <link rel="stylesheet" href="/css/skel-noscript.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/style-desktop.css">
 
     <style>
 
@@ -43,31 +41,39 @@
     </style>
 </head>
 <body>
-
-    <form class="form-signin" th:action="@{/login}" method="post">
-        <label for="userid">userid</label>
+    <form class="form-sign" th:action="@{/signup}" method="post">
+        <label for="userid" class="sr-only">아이디</label>
         <input type="text" id="userid" name="userid" class="form-control" placeholder="userid" required autofocus>
 
-        <label for="password">password</label>
+        <label for="password" class="sr-only">비번</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="password" required>
 
-        <label for="email">email</label>
-        <input type="email" name="email" id="email" class="form-control" placeholder="이메일" required/>
+        <label for="username" class="sr-only">이름</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="username" required autofocus>
 
-        <label for="adress">adress</label>
-        <input type="reset" name="adress" id="adress" class="form-control" placeholder="주소" required/>
+        <label for="roles" class="sr-only">당신의 직분은 무엇인가요?</label>
+        <input type="text" id="roles" name="roles" class="form-control" placeholder="roles" required autofocus>
 
-        <label for="detail_adress">detail adress</label>
-        <input type="email" name="detail_adress" class="form-control" id="detail_adress" placeholder="상세 주소" required/>
+        <label for="email" class="sr-only">이메일</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="email" required autofocus>
 
-        <label for="birthday">birthday</label>
-        <input type="date" name="birthday" id="birthday"  placeholder="birthday" required/><br>
+        <label for="birthday" >생일</label>
+        <input type="date" id="birthday" name="birthday" placeholder="birthday" required autofocus>
 
-        <label for="phone_number">phone</label>
-        <input type="tel" name="phone_number" id="phone_number" class="form-control" pattern="[0-9]{3}[0-9]{4}[0-9]{4}" placeholder="phone number" required/>
+        <label for="phoneNumber" class="sr-only">핸드폰 번호</label>
+        <input type="tel" name="phoneNumber" class="form-control" id="phoneNumber" pattern="[0-9]{3}[0-9]{4}[0-9]{4}" placeholder="phoneNumber" required/>
+
+        <label for="adress" class="sr-only">주소</label>
+        <input type="text" name="adress" class="form-control" id="adress" placeholder="주소" required/>
+
+        <label for="datailAdress" class="sr-only">상세주소</label>
+        <input type="text" name="datailAdress" class="form-control" id="datailAdress" placeholder="상세주소" required/>
+
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
+
+
 
 </body>
 </html>

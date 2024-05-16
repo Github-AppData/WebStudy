@@ -25,7 +25,10 @@ public class User {
     private String username; // 사용자 이름
 
     @Column(length = 1000, nullable = false)
-    private String roles; // 사용자 역할 목록
+    private String roles; // 사용자 역할
+
+    @Column(length = 1000, nullable = false)
+    private Date birthday; // 생일
 
     @Temporal(TemporalType.DATE)
     private Date loginTime; // 로그인 시간
@@ -40,19 +43,31 @@ public class User {
     private String email;
 
     @Column(length = 1000, nullable = false)
-    private String pw;
+    private String adress;
+
+    @Column(length = 1000, nullable = false)
+    private String datailAdress;
+
+    @Column(length = 1000, nullable = false)
+    private String password;
+
+    @Column(length = 1000, nullable = false)
+    private String phoneNumber;
 
 
-    public User(String userId, String username, String roles, Date loginTime, boolean is_status, String salt, String email, String pw) {
-
+    public User(String userId, String username, String roles, Date birthday, Date loginTime, boolean is_status, String salt, String email, String adress, String datailAdress, String password, String phoneNumber) {
         this.userId = userId;
         this.username = username;
         this.roles = roles;
+        this.birthday = birthday;
         this.loginTime = loginTime;
         this.is_status = is_status;
         this.salt = salt;
         this.email = email;
-        this.pw = pw;
+        this.adress = adress;
+        this.datailAdress = datailAdress;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
     public User() {

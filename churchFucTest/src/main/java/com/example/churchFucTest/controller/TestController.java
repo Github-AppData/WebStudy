@@ -1,6 +1,7 @@
 package com.example.churchFucTest.controller;
 
 import com.example.churchFucTest.config.LoginUser;
+import com.example.churchFucTest.domain.User;
 import com.example.churchFucTest.dto.SessionUserDTO;
 import com.example.churchFucTest.service.LoginAndAuthService;
 import com.example.churchFucTest.service.PostsService;
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.sql.Date;
+import java.time.LocalDate;
+
 
 @Controller
 @RequiredArgsConstructor
@@ -74,17 +79,33 @@ public class TestController {
     }
 
     @PostMapping("/signup")
-    public String postsignup(@LoginUser SessionUserDTO sessionUserDTO) {
+    public String postsignup(RedirectAttributes rttr, @RequestParam String userid,
+                             @RequestParam String password, @RequestParam Date birthday,
+                             @RequestParam String phoneNumber, @RequestParam String adress,
+                             @RequestParam String datailAdress, @RequestParam String email,
+                             @RequestParam String username, @RequestParam String roles) {
 
-        // TODO : signUp Page에 있는 정보를 가지고 와서, 다 저장한 다음에
-        //  processLogin를 한다.
+        LocalDate localDate = LocalDate.now();
+        Date date = Date.valueOf(localDate);
 
-        // sessionUserDTO = loginAndAuthService.processLogin();
+        User user = new User();
+        user.setPassword(password);
+        user.setBirthday(birthday);
+        user.setEmail(email);
+        user.setUsername(username);
+        user.setAdress(adress);
+        user.setDatailAdress(datailAdress);
+        user.setUserId(userid);
+        user.setPhoneNumber(phoneNumber);
+        user.setRoles(roles);
+        user.setLoginTime(date);
 
-        
+        loginAndAuthService.processsignUp(user);
 
+        // TODO : 회원가입, 비밀번호 처리 다 됨(조건만 달면 됨)
+        //          이제 로그인, 회원가입 css만 수정하자.
 
-        return "signup";
+        return "redirect:/main";
     }
 
 
