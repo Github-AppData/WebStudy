@@ -15,9 +15,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link href="//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900" rel="stylesheet" type="text/css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/skel-panels.min.js"></script>
-    <script src="/js/init.js"></script>
+    <script src="/js/login.js"></script>
 
     <!-- 구글 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,9 +24,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="/css/skel-noscript.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/style-desktop.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
 
     <style>
 
@@ -41,16 +38,52 @@
     </style>
 </head>
 <body>
+            <div class="container-fluid">
+                <a href="main">
+                    <img id="img2" src="/img/ch_logo.png" alt="" >
+                </a>
+            </div>
 
-    <form class="form-sign" th:action="@{/login}" method="post">
-        <label for="userid" class="sr-only">userid</label>
-        <input type="text" id="userid" name="userid" class="form-control" placeholder="userid" required autofocus>
 
-        <label for="password" class="sr-only">password</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="password" required>
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container scrollable-container">
+            <form th:action="@{/signup}" method="post">
+                <input type="text" name="userid" placeholder="Your ID" required autofocus>
+                <input type="password" name="inputPassword" placeholder="Your Password" required id="password"/>
+                <input type="text" id="username" name="username" placeholder="username" required>
+                <input type="text" id="roles" name="roles" placeholder="roles" required>
+                <input type="email" id="email" name="email" placeholder="email" required>
+                <input type="date" id="birthday" name="birthday" placeholder="birthday" required autofocus>
+                <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{3}[0-9]{4}[0-9]{4}" placeholder="phoneNumber" required/>
+                <input type="text" name="adress" id="adress" placeholder="주소" required/>
+                <input type="text" name="datailAdress"  id="datailAdress" placeholder="상세주소" required/>
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form th:action="@{/login}" method="post">
+                <h1>Login</h1>
+                <input type="text" name="userid" placeholder="Your ID" required autofocus>
+                <input type="password" name="inputPassword" placeholder="Your Password" required/>
+                <a href="#">Forgot your password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

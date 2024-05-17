@@ -14,7 +14,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     /** userid를 사용하여 사용자 정보를 가져옴 */
     @Transactional
     @Query(value = "select * from User where user_Id = :userId", nativeQuery = true)
-    public User findByUserId(@Param("userId") String userId);
+    public User findByUserid(@Param("userId") String userId);
 
 
     /** 인수로 받은 userid가 DB에 있는 지 체크 */

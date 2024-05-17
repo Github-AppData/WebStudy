@@ -22,36 +22,60 @@ public class LoginAndAuthService {
     private final HttpServletRequest request;
 
 
-
     /** 로그인 처리 - 세션에 user 정보 등록 */
-    public SessionUserDTO processLogin(String userId){
+    public SessionUserDTO processLogin(String userId, String inputPassword) throws NoSuchAlgorithmException {
 
-        boolean is_exists;
+        boolean is_exists, isPwValid;
+        String salt, hasedPassword, check_pw;
 
         is_exists = userRepository.existsByUserId(userId);
-        User user = userRepository.findByUserId(userId);
+        User stroedUser = userRepository.findByUserid(userId);
+
+        log.info("stroedUser={}", stroedUser);
 
         // 로그인 세션 DTO임.
         SessionUserDTO sessionUserDTO = null;
 
-        if(is_exists){ // id가 DB에 있으면,,
+        if(is_exists){ // id가 DB에 있으면,, -> 1단계
+            isPwValid = checkPwValid(inputPassword, stroedUser);
 
-            user.set_status(true); // 상태를 로그인 상태로 바꾼다.
-            userRepository.save(user); // 바꾼 상태를 저장.
+            if(isPwValid) { // 만약 비번이 같다면,
+                sessionUserDTO = setSessionUserDTO(stroedUser); // 세션 저장.
+                stroedUser.set_status(true); // 상태를 로그인 상태로 바꾼다.
+                userRepository.save(stroedUser); // 바꾼 상태를 저장.
+                return sessionUserDTO;
+            } else { // 만약 비번이 같지 않다면,
+                log.info("비밀번호가 같지 않습니다.");
+                return null;
+            }
 
-            // 로그인 할 때마다, 새로운 세션 생성
-            sessionUserDTO = new SessionUserDTO();
+        } else { // id가 DB에 없으면,,
+            log.info("없는 id 입니다.");
+            return null;
+        }
 
-            sessionUserDTO.setUserId(user.getUserId());
-            sessionUserDTO.setUsername(user.getUsername());
-            sessionUserDTO.setRoles(user.getRoles());
-            sessionUserDTO.setLoginTime(user.getLoginTime());
-            sessionUserDTO.set_status(user.is_status());
-            sessionUserDTO.setIdx(user.getIdx());
+    }
 
+    private static boolean checkPwValid(String InputPassword, User stroedUser) throws NoSuchAlgorithmException {
+        boolean isPwValid;
+        String check_pw;
+        String hasedPassword;
+        check_pw = stroedUser.getPassword();
+        hasedPassword = PasswordHashingUtil.hashPassword(InputPassword, stroedUser.getSalt());
+        isPwValid = PasswordHashingUtil.verifyPassword(hasedPassword, stroedUser.getPassword());
+        return isPwValid;
+    }
 
-        } // 없으면 null 임.
+    private static SessionUserDTO setSessionUserDTO(User stroedUser) {
+        SessionUserDTO sessionUserDTO;
+        sessionUserDTO = new SessionUserDTO();
 
+        sessionUserDTO.setUserId(stroedUser.getUserId());
+        sessionUserDTO.setUsername(stroedUser.getUsername());
+        sessionUserDTO.setRoles(stroedUser.getRoles());
+        sessionUserDTO.setLoginTime(stroedUser.getLoginTime());
+        sessionUserDTO.set_status(stroedUser.is_status());
+        sessionUserDTO.setIdx(stroedUser.getIdx());
         return sessionUserDTO;
     }
 
@@ -95,7 +119,7 @@ public class LoginAndAuthService {
     public void checkUserOrNotAdmin(String userid){
 
         // TODO : userid를 받아와서, id와 비밀번호를 check 한다.
-        User user = userRepository.findByUserId(userid);
+        User user = userRepository.findByUserid(userid);
 
 
 

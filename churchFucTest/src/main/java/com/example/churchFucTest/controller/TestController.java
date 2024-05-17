@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -30,7 +31,7 @@ public class TestController {
 
     @PostMapping("/login")
     public String loginPost(Model model, @LoginUser SessionUserDTO sessionUserDTO,
-                            @RequestParam String userid, HttpSession session, HttpServletRequest request,
+                            @RequestParam String userid, @RequestParam String inputPassword, HttpSession session, HttpServletRequest request,
                             RedirectAttributes rttr){
 
         session = request.getSession();
@@ -41,24 +42,50 @@ public class TestController {
 
         log.info("userid={}", userid);
         boolean is_exists; // 로그인 쳌
-        sessionUserDTO = loginAndAuthService.processLogin(userid);
+
+        try {
+            sessionUserDTO = loginAndAuthService.processLogin(userid, inputPassword);
+
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
 
         // sessionUserDTO에 값이 없지 않으면,,, - 성공
         if (sessionUserDTO != null) {
-            log.info("Success sessionUserDTO={}", sessionUserDTO);
-            session.setAttribute("user", sessionUserDTO);
-            model.addAttribute("userName", sessionUserDTO.getUsername()); // 전달해 준다. html로
-            return "redirect:/main";
+            if(sessionUserDTO.getUserId().equalsIgnoreCase("admin")){ // 관리자인가.
+                successLoginPakage(model, sessionUserDTO, session);
+                return "redirect:/admin"; // 관리자페이지로 redirect
+
+            } else { // 관리자가 아닌 일반 유저이면,
+                successLoginPakage(model, sessionUserDTO, session);
+                return "redirect:/main";
+            }
         } else { // 실패
             log.info("False sessionUserDTO={}", sessionUserDTO);
             return "redirect:/login"; // GET으로 다시 리다이렉트
         }
     }
 
+    private static void successLoginPakage(Model model, SessionUserDTO sessionUserDTO, HttpSession session) {
+        session.setAttribute("user", sessionUserDTO); // 세션으롤 저장.
+        model.addAttribute("userName", sessionUserDTO.getUsername()); // 전달해 준다. html로
+    }
+
+    @GetMapping("/admin")
+    public String adminMain(){
+        return "adminMain";
+    }
+
     @GetMapping("/login")
     public String loginGet(Model model){
         return "login";
     }
+
+    @GetMapping("/login2")
+    public String login2Get(Model model){
+        return "login2";
+    }
+
 
     // 메인
     @GetMapping("/main")
@@ -80,7 +107,7 @@ public class TestController {
 
     @PostMapping("/signup")
     public String postsignup(RedirectAttributes rttr, @RequestParam String userid,
-                             @RequestParam String password, @RequestParam Date birthday,
+                             @RequestParam String inputPassword, @RequestParam Date birthday,
                              @RequestParam String phoneNumber, @RequestParam String adress,
                              @RequestParam String datailAdress, @RequestParam String email,
                              @RequestParam String username, @RequestParam String roles) {
@@ -89,7 +116,7 @@ public class TestController {
         Date date = Date.valueOf(localDate);
 
         User user = new User();
-        user.setPassword(password);
+        user.setPassword(inputPassword);
         user.setBirthday(birthday);
         user.setEmail(email);
         user.setUsername(username);
