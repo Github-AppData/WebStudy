@@ -34,7 +34,7 @@ public class User {
     private Date loginTime; // 로그인 시간
 
     @Column(columnDefinition = "boolean default 0")
-    private boolean is_status; // 로그인 상태를 나타냄 (1 로그인, 0 로그아웃)
+    private Boolean is_status; // 로그인 상태를 나타냄 (1 로그인, 0 로그아웃)
 
     @Column(length = 1000, nullable = false)
     private String salt;
@@ -55,7 +55,7 @@ public class User {
     private String phoneNumber;
 
 
-    public User(String userId, String username, String roles, Date birthday, Date loginTime, boolean is_status, String salt, String email, String adress, String datailAdress, String password, String phoneNumber) {
+    public User(String userId, String username, String roles, Date birthday, Date loginTime, Boolean is_status, String salt, String email, String adress, String datailAdress, String password, String phoneNumber) {
         this.userId = userId;
         this.username = username;
         this.roles = roles;
@@ -68,6 +68,14 @@ public class User {
         this.datailAdress = datailAdress;
         this.password = password;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Long getIdx() {
+        return idx;
+    }
+
+    public void setIdx(Long idx) {
+        this.idx = idx;
     }
 
     public User() {

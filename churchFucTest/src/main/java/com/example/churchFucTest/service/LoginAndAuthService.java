@@ -41,7 +41,7 @@ public class LoginAndAuthService {
 
             if(isPwValid) { // 만약 비번이 같다면,
                 sessionUserDTO = setSessionUserDTO(stroedUser); // 세션 저장.
-                stroedUser.set_status(true); // 상태를 로그인 상태로 바꾼다.
+                stroedUser.setIs_status(true); // 상태를 로그인 상태로 바꾼다.
                 userRepository.save(stroedUser); // 바꾼 상태를 저장.
                 return sessionUserDTO;
             } else { // 만약 비번이 같지 않다면,
@@ -74,7 +74,7 @@ public class LoginAndAuthService {
         sessionUserDTO.setUsername(stroedUser.getUsername());
         sessionUserDTO.setRoles(stroedUser.getRoles());
         sessionUserDTO.setLoginTime(stroedUser.getLoginTime());
-        sessionUserDTO.set_status(stroedUser.is_status());
+        sessionUserDTO.set_status(stroedUser.getIs_status());
         sessionUserDTO.setIdx(stroedUser.getIdx());
         return sessionUserDTO;
     }
@@ -85,6 +85,7 @@ public class LoginAndAuthService {
         String password;
 
         boolean is_exists;
+        System.out.println("processsignUp user = " + user);
         is_exists = userRepository.existsByUserId(user.getUserId());// id 중복 방지체크
 
         if (!is_exists) { // 만약 없으면, 회원가입 처리 시작

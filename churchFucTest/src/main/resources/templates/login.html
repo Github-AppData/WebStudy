@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,9 +47,9 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up-container scrollable-container">
-            <form th:action="@{/signup}" method="post">
-                <input type="text" name="userid" placeholder="Your ID" required autofocus>
-                <input type="password" name="inputPassword" placeholder="Your Password" required id="password"/>
+            <form th:action="@{/signUp}" method="post">
+                <input type="text" id="userId" name="userId" placeholder="Your ID" required autofocus >
+                <input type="password" name="password" placeholder="Your Password" required id="password">
                 <input type="text" id="username" name="username" placeholder="username" required>
                 <input type="text" id="roles" name="roles" placeholder="roles" required>
                 <input type="email" id="email" name="email" placeholder="email" required>

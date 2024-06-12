@@ -3,6 +3,7 @@ package com.example.churchFucTest.controller;
 import com.example.churchFucTest.config.LoginUser;
 import com.example.churchFucTest.domain.User;
 import com.example.churchFucTest.dto.SessionUserDTO;
+import com.example.churchFucTest.dto.UserDTO;
 import com.example.churchFucTest.service.LoginAndAuthService;
 import com.example.churchFucTest.service.PostsService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.NoSuchAlgorithmException;
-import java.sql.Date;
-import java.time.LocalDate;
 
 
 @Controller
@@ -97,47 +96,35 @@ public class TestController {
         return "main";
     }
 
-    @GetMapping("/signup")
+    @GetMapping("/signUp")
     public String signup(@LoginUser SessionUserDTO sessionUserDTO) {
 
-
-
-        return "signup";
+        return "signUp";
     }
 
-    @PostMapping("/signup")
-    public String postsignup(RedirectAttributes rttr, @RequestParam String userid,
-                             @RequestParam String inputPassword, @RequestParam Date birthday,
-                             @RequestParam String phoneNumber, @RequestParam String adress,
-                             @RequestParam String datailAdress, @RequestParam String email,
-                             @RequestParam String username, @RequestParam String roles) {
+    @PostMapping("/signUp")
+    public String postsignup(RedirectAttributes rttr, UserDTO userDTO) {
 
-        LocalDate localDate = LocalDate.now();
-        Date date = Date.valueOf(localDate);
-
-        User user = new User();
-        user.setPassword(inputPassword);
-        user.setBirthday(birthday);
-        user.setEmail(email);
-        user.setUsername(username);
-        user.setAdress(adress);
-        user.setDatailAdress(datailAdress);
-        user.setUserId(userid);
-        user.setPhoneNumber(phoneNumber);
-        user.setRoles(roles);
-        user.setLoginTime(date);
-
-        loginAndAuthService.processsignUp(user);
-
-        // TODO : 회원가입, 비밀번호 처리 다 됨(조건만 달면 됨)
-        //          이제 로그인, 회원가입 css만 수정하자.
+        System.out.println("postsignup");
+        loginAndAuthService.processsignUp(convertToEntity(userDTO));
 
         return "redirect:/main";
     }
 
-
-
-
+    private static User convertToEntity(UserDTO userDTO) {
+        User user = new User();
+        user.setPassword(userDTO.getPassword());
+        user.setBirthday(userDTO.getBirthday());
+        user.setEmail(userDTO.getEmail());
+        user.setUsername(userDTO.getUsername());
+        user.setAdress(userDTO.getAdress());
+        user.setDatailAdress(userDTO.getDatailAdress());
+        user.setUserId(userDTO.getUserId());
+        user.setPhoneNumber(userDTO.getPhoneNumber());
+        user.setRoles(userDTO.getRoles());
+        user.setLoginTime(userDTO.getLoginTime());
+        return user;
+    }
 
 
     /// 교회소개 ///
