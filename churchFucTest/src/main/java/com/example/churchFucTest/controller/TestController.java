@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.NoSuchAlgorithmException;
+import java.sql.Date;
+import java.time.LocalDate;
 
 
 @Controller
@@ -40,6 +42,7 @@ public class TestController {
         // TODO : 확인 절차 - 로그인한 대상이 DB에 저장되어 있는 id와 맞는지.
 
         log.info("userid={}", userid);
+        log.info("pw={}", inputPassword);
         boolean is_exists; // 로그인 쳌
 
         try {
@@ -117,12 +120,19 @@ public class TestController {
         user.setBirthday(userDTO.getBirthday());
         user.setEmail(userDTO.getEmail());
         user.setUsername(userDTO.getUsername());
-        user.setAdress(userDTO.getAdress());
-        user.setDatailAdress(userDTO.getDatailAdress());
+        user.setAddress(userDTO.getAddress());
+        user.setDetailAddress(userDTO.getDetailAddress());
         user.setUserId(userDTO.getUserId());
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setRoles(userDTO.getRoles());
-        user.setLoginTime(userDTO.getLoginTime());
+
+        LocalDate localDate = LocalDate.now();
+        // LocalDate를 java.sql.Date로 변환
+        Date sqlDate = Date.valueOf(localDate);
+
+        user.setLoginTime(sqlDate);
+
+        System.out.println("convertToEntity user.getPassWord() = " + user.getPassword());
         return user;
     }
 

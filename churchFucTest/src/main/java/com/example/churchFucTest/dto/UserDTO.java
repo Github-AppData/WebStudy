@@ -3,18 +3,21 @@ package com.example.churchFucTest.dto;
 import java.sql.Date;
 
 public class UserDTO {
+
     private String userId; // 사용자 식별자(ID)
     private String username; // 사용자 이름
     private String roles; // 사용자 역할
     private Date birthday; // 생일
     private Date loginTime; // 로그인 시간
-    private Boolean is_status = false; // 로그인 상태를 나타냄 (1 로그인, 0 로그아웃)
-    private String salt;
+    private boolean status; // 로그인 상태
+    private String salt; // 솔트 값
     private String email;
-    private String adress;
-    private String datailAdress;
+    private String address; // 주소
+    private String detailAddress; // 상세 주소
     private String password;
-    private String phoneNumber;
+    private String phoneNumber; // 전화번호
+
+    // getters and setters
 
     public String getUserId() {
         return userId;
@@ -56,12 +59,12 @@ public class UserDTO {
         this.loginTime = loginTime;
     }
 
-    public Boolean isIs_status() {
-        return is_status;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setIs_status(Boolean is_status) {
-        this.is_status = is_status;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public String getSalt() {
@@ -80,20 +83,20 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getDatailAdress() {
-        return datailAdress;
+    public String getDetailAddress() {
+        return detailAddress;
     }
 
-    public void setDatailAdress(String datailAdress) {
-        this.datailAdress = datailAdress;
+    public void setDetailAddress(String detailAddress) {
+        this.detailAddress = detailAddress;
     }
 
     public String getPassword() {
@@ -109,21 +112,6 @@ public class UserDTO {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public UserDTO(String userId, String username, String roles, Date birthday, Date loginTime, Boolean is_status, String salt, String email, String adress, String datailAdress, String password, String phoneNumber) {
-        this.userId = userId;
-        this.username = username;
-        this.roles = roles;
-        this.birthday = birthday;
-        this.loginTime = loginTime;
-        this.is_status = is_status;
-        this.salt = salt;
-        this.email = email;
-        this.adress = adress;
-        this.datailAdress = datailAdress;
-        this.password = password;
         this.phoneNumber = phoneNumber;
     }
 }

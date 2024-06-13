@@ -5,9 +5,9 @@ import com.example.churchFucTest.crypt.PasswordHashingUtil;
 import com.example.churchFucTest.domain.User;
 import com.example.churchFucTest.dto.SessionUserDTO;
 import com.example.churchFucTest.repository.UserRepository;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
@@ -19,16 +19,18 @@ public class LoginAndAuthService {
 
     private final UserRepository userRepository;
 
-    private final HttpServletRequest request;
-
+    @Autowired
+    PasswordHashingUtil passwordHashingUtil;
 
     /** 로그인 처리 - 세션에 user 정보 등록 */
     public SessionUserDTO processLogin(String userId, String inputPassword) throws NoSuchAlgorithmException {
 
-        boolean is_exists, isPwValid;
-        String salt, hasedPassword, check_pw;
+        boolean is_exists, isPwValid, isPwValidReal;
 
+        // DB에 userid가 있는 지 없는 지 확인하는 boolean 이다.
         is_exists = userRepository.existsByUserId(userId);
+
+        // 저장된 User의 데이터를 DB에서 가지고 온다.
         User stroedUser = userRepository.findByUserid(userId);
 
         log.info("stroedUser={}", stroedUser);
@@ -37,11 +39,20 @@ public class LoginAndAuthService {
         SessionUserDTO sessionUserDTO = null;
 
         if(is_exists){ // id가 DB에 있으면,, -> 1단계
-            isPwValid = checkPwValid(inputPassword, stroedUser);
 
-            if(isPwValid) { // 만약 비번이 같다면,
+            // 비밀번호가 input 이랑 저장된 비밀번호랑 맞는지 확인
+
+            String hassedPW = PasswordHashingUtil.hashPassword(inputPassword, stroedUser.getSalt());
+            isPwValidReal = PasswordHashingUtil.verifyPassword(hassedPW, stroedUser.getPassword());
+            System.out.println("stroedUser.getSalt() = " + stroedUser.getSalt());
+            System.out.println();
+            System.out.println("stroedUser.getPassword() = " + stroedUser.getPassword());
+            System.out.println("hassedPW = " + hassedPW);
+
+            // 0c99fd939dace583fe197e5a93f0f9fd - salt xodnr2024
+            if(isPwValidReal) { // 만약 비번이 같다면,
                 sessionUserDTO = setSessionUserDTO(stroedUser); // 세션 저장.
-                stroedUser.setIs_status(true); // 상태를 로그인 상태로 바꾼다.
+                stroedUser.setStatus(true); // 상태를 로그인 상태로 바꾼다.
                 userRepository.save(stroedUser); // 바꾼 상태를 저장.
                 return sessionUserDTO;
             } else { // 만약 비번이 같지 않다면,
@@ -56,15 +67,17 @@ public class LoginAndAuthService {
 
     }
 
-    private static boolean checkPwValid(String InputPassword, User stroedUser) throws NoSuchAlgorithmException {
-        boolean isPwValid;
-        String check_pw;
-        String hasedPassword;
-        check_pw = stroedUser.getPassword();
-        hasedPassword = PasswordHashingUtil.hashPassword(InputPassword, stroedUser.getSalt());
-        isPwValid = PasswordHashingUtil.verifyPassword(hasedPassword, stroedUser.getPassword());
-        return isPwValid;
-    }
+//    private static boolean checkPwValid(String inputPw, User stroedUser,  String salt) {
+//        boolean isPwValidReal = false;
+//        try {
+//
+//            return isPwValidReal;
+//
+//        } catch (NoSuchAlgorithmException e){
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
 
     private static SessionUserDTO setSessionUserDTO(User stroedUser) {
         SessionUserDTO sessionUserDTO;
@@ -74,7 +87,7 @@ public class LoginAndAuthService {
         sessionUserDTO.setUsername(stroedUser.getUsername());
         sessionUserDTO.setRoles(stroedUser.getRoles());
         sessionUserDTO.setLoginTime(stroedUser.getLoginTime());
-        sessionUserDTO.set_status(stroedUser.getIs_status());
+        sessionUserDTO.set_status(stroedUser.isStatus());
         sessionUserDTO.setIdx(stroedUser.getIdx());
         return sessionUserDTO;
     }

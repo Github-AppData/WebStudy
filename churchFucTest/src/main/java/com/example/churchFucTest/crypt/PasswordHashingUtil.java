@@ -1,10 +1,16 @@
 package com.example.churchFucTest.crypt;
 
+import org.springframework.stereotype.Service;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
+@Service
 public class PasswordHashingUtil {
+
+    public PasswordHashingUtil() {
+    }
 
     // 사용자의 비밀번호를 해시화하는 메서드
     public static String hashPassword(String password, String salt) throws NoSuchAlgorithmException {

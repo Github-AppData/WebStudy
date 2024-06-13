@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,15 +48,15 @@
     <div class="container" id="container">
         <div class="form-container sign-up-container scrollable-container">
             <form th:action="@{/signUp}" method="post">
-                <input type="text" id="userId" name="userId" placeholder="Your ID" required autofocus >
+                <input type="text" id="userId" name="userId" placeholder="Your ID" required autofocus>
                 <input type="password" name="password" placeholder="Your Password" required id="password">
                 <input type="text" id="username" name="username" placeholder="username" required>
                 <input type="text" id="roles" name="roles" placeholder="roles" required>
                 <input type="email" id="email" name="email" placeholder="email" required>
-                <input type="date" id="birthday" name="birthday" placeholder="birthday" required autofocus>
-                <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{3}[0-9]{4}[0-9]{4}" placeholder="phoneNumber" required/>
-                <input type="text" name="adress" id="adress" placeholder="주소" required/>
-                <input type="text" name="datailAdress"  id="datailAdress" placeholder="상세주소" required/>
+                <input type="date" id="birthday" name="birthday" placeholder="birthday" required>
+                <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{3}[0-9]{4}[0-9]{4}" placeholder="phoneNumber" required>
+                <input type="text" name="address" id="address" placeholder="주소" required>
+                <input type="text" name="detailAddress" id="detailAddress" placeholder="상세주소" required>
                 <button>Sign Up</button>
             </form>
         </div>
