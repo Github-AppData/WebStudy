@@ -793,7 +793,7 @@
 
 #header {
 	position: relative;
-	background-image: url(../img/headerImg.jpg); /* 이미지 경로를 올바르게 지정하세요 */
+	/*background-image: url(../img/headerImg.jpg); !* 이미지 경로를 올바르게 지정하세요 *!*/
 	background-repeat: no-repeat; /* 이미지 반복 없음 */
 	background-position: bottom center; /* 이미지를 가로 중앙, 세로 하단에 배치 */
 	background-attachment: fixed; /* 이미지가 스크롤되지 않도록 설정 */

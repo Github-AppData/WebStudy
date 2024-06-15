@@ -83,6 +83,37 @@ public class TestController {
         return "login";
     }
 
+    @GetMapping("/login/forgetPW")
+    public String GETforgetPW(Model model){
+        return "forgetPW";
+    }
+
+    @GetMapping("/login/forgetPW2")
+    public String GETforgetPW2(Model model){
+        return "forgetPW2";
+    }
+
+    @PostMapping("/login/forgetPW")
+    public String POSTforgetPW(Model model, @RequestParam String userid, RedirectAttributes rttr){
+
+        // TODO : ID CHECK
+        boolean is_Id;
+
+        if(loginAndAuthService.checkUserID(userid)){
+            log.info("아이디가 존재합니당");
+            return "redirect:/login/forgetPW2"; // 다음 단계로
+        } else {
+            log.info("아이디가 맞지 않습니다.");
+            return "redirect:/login/forgetPW"; // 다시 제자리
+        }
+    }
+
+
+    @GetMapping("/complete")
+    public String complete(Model model){
+        return "complete";
+    }
+
     @GetMapping("/login2")
     public String login2Get(Model model){
         return "login2";

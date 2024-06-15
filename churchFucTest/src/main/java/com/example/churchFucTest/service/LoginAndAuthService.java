@@ -134,9 +134,11 @@ public class LoginAndAuthService {
 
         // TODO : userid를 받아와서, id와 비밀번호를 check 한다.
         User user = userRepository.findByUserid(userid);
+    }
 
+    public boolean checkUserID(String userid){
 
-
+        return userRepository.existsByUserId(userid);
 
     }
 

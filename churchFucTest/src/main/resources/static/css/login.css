@@ -133,6 +133,78 @@ input {
     z-index: 2;
 }
 
+#forgetPW1{
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+#forgetPW2{
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+#forgetPW1 input {
+    width: 60%;
+}
+
+.container-divFirst{
+
+    position: relative;
+
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: 100px;
+    margin-top: 75px;
+}
+
+.container-divSecond{
+
+    position: relative;
+
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: 100px;
+    margin-top: 75px;
+}
+
+#container2 {
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+     0 10px 10px rgba(0,0,0,0.22);
+     position: relative;
+     overflow: hidden;
+     width: 700px;
+     max-width: 100%;
+     min-height: 650px;
+ }
+
+.container-divFirst input {
+    width: 70%;
+}
+
+.container-divSecond input{
+    width: 70%;
+}
+
+.container-divFirst button {
+    margin-top: 15px;
+}
+
+.container-divSecond button{
+    margin-top: 15px;
+}
+
 .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
 }

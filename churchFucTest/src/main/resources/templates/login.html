@@ -47,7 +47,8 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up-container scrollable-container">
-            <form th:action="@{/signUp}" method="post">
+            <form th:action="@{/complete}" method="get">
+                <b></b>
                 <input type="text" id="userId" name="userId" placeholder="Your ID" required autofocus>
                 <input type="password" name="password" placeholder="Your Password" required id="password">
                 <input type="text" id="username" name="username" placeholder="username" required>
@@ -65,7 +66,7 @@
                 <h1>Login</h1>
                 <input type="text" name="userid" placeholder="Your ID" required autofocus>
                 <input type="password" name="inputPassword" placeholder="Your Password" required/>
-                <a href="#">Forgot your password?</a>
+                <a th:href="@{/login/forgetPW}">비밀번호 찾기</a>
                 <button>Sign In</button>
             </form>
         </div>
