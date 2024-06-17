@@ -93,6 +93,26 @@ public class TestController {
         return "forgetPW2";
     }
 
+    @GetMapping("/login/pwUpdateLast")
+    public String GETpwUpdateLast(Model model){
+        return "pwUpdateLast";
+    }
+
+    @PostMapping("/login/pwUpdateLast")
+    public String POSTpwUpdateLast(RedirectAttributes rttr, Model model, @RequestParam String password, @RequestParam String new_password){
+
+        // TODO : 전에 쓰던 비번이랑 같은 지 확인하는 작업이 필요하다.
+
+        if(password.equals(new_password)){
+            // TODO : 비밀번호 교체작업
+            log.info("비밀번호가 맞습니다.");
+            return "redirect:/login";
+        } else {
+            log.info("비밀번호가 틀립니다.");
+            return "redirect:/login/pwUpdateLast";
+        }
+    }
+
     @PostMapping("/login/forgetPW")
     public String POSTforgetPW(Model model, @RequestParam String userid, RedirectAttributes rttr){
 

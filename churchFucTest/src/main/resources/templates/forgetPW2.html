@@ -45,9 +45,9 @@
     <div class="container" id="container2">
         <div class="container-divFirst">
             <div>
-                <h1>Enter Your Email</h1><br>
-                <input id="mail" type="email" name="email" required autofocus><br>
-                <button onclick="sendNumber()">인증 코드 전송</button>
+                    <h1>Enter Your Email</h1><br>
+                    <input id="mail" type="email" name="mail" required autofocus><br>
+                    <button onclick="sendNumber()">인증 코드 전송</button>
             </div>
         </div>
 
@@ -58,6 +58,7 @@
 
                 <button type="button" onclick="confirmNumber()">인증 확인</button>
             </div>
+            <input type="text" id="Confirm" name="Confirm" style="display: none">
 
         </div>
 
@@ -66,7 +67,6 @@
 
 
     <script>
-        // TODO : 이메일 처리하기
         function sendNumber(){
             var xhr = new XMLHttpRequest();
 
@@ -83,13 +83,12 @@
                 }
             }
 
-
             console.log("실행 ");
             $("#mail_number").css("display","block");
             $.ajax({
                 url:"/login/forgetPW2",
-                type:"get",
-                dataType:"json",
+                type:"post",
+                dataType:"text",
                 data:{"mail" : $("#mail").val()},
                 success: function(data){
                     alert("인증번호 발송");

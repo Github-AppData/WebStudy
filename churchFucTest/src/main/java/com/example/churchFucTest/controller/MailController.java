@@ -1,6 +1,9 @@
 package com.example.churchFucTest.controller;
 
 import com.example.churchFucTest.service.MailService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,17 +30,28 @@ public class MailController {
     
     
 
-    @PostMapping("/forgetPW2")
-    public String execMail(@RequestParam String mail, RedirectAttributes rttr, Model model)
-    {
-    	System.out.println("mail : "+ mail);
-    	int number = mailService.sendMail(mail);
+    @PostMapping("/login/forgetPW2")
+    public String execMail(@RequestParam String mail, RedirectAttributes rttr, Model model, HttpServletResponse response, HttpServletRequest request){
+
+        System.out.println("mail : "+ mail);
+
+        int number = mailService.sendMail(mail);
 
         String num = null;
-		num = "" + number;
-        
+        num = "" + number;
+
         System.out.println("controller num : "+ num);
-        model.addAttribute("num", number);
+
+        HttpSession session;
+        session = request.getSession();
+        session.setAttribute("num", num);
+
+//        try {
+//            response.sendRedirect("/findPwNumberSetServlet");
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
 
         return "redirect:/login/forgetPW2";
     }
